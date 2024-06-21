@@ -1,9 +1,9 @@
-package DSA.BinarySearch;
+package DSA.binarysearch;
 
 import java.util.Collections;
 import java.util.List;
 
-public class CountPairsWhoseSumisLessthanTarget {
+public class CountPairsWhoseSumIsLessthanTarget {
 
     public int solve1(List<Integer> numsList, int target) {
 
