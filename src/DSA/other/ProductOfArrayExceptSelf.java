@@ -1,4 +1,4 @@
-package DSA;
+package DSA.other;
 
 //https://leetcode.com/problems/product-of-array-except-self
 public class ProductOfArrayExceptSelf {

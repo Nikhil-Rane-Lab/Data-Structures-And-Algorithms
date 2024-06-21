@@ -1,4 +1,4 @@
-package DSA;
+package DSA.other;
 
 public class ValidSudoku {
 

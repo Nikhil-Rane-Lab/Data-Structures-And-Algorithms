@@ -1,4 +1,4 @@
-package DSA;
+package DSA.other;
 
 //https://leetcode.com/problems/reverse-words-in-a-string
 public class ReverseWordsInAString {
