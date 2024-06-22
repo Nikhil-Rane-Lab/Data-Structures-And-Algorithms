@@ -1,0 +1,36 @@
+package DSA.linkedlist;
+
+public class RotateList {
+
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+
+        int len = 1; //⭐
+        ListNode curr = head;
+
+        while (curr.next != null) { //⭐The reason we have given this condition instead of while (curr != null) to calculate length of LL is because we want the "curr" to be non-null
+            curr = curr.next;
+            len++;
+        }
+
+        k = k % len; //😱 it is not (len%k) as we generally think that numerator should be higher than denominator which DOES NOT apply in this case
+        if (k == 0) {
+            return head; //do nothing, return LL as it is
+        }
+
+        int numOfStepsToReachNewTail = len - k;
+
+        curr.next = head; //⭐ to make the LL circular
+        ListNode newTail = head;
+
+        for (int i = 1; i < numOfStepsToReachNewTail; i++) { //⚠️
+            newTail = newTail.next;
+        }
+
+        ListNode newHead = newTail.next; //"newHead" is the new head of the rotated LL
+        newTail.next = null; //"newTail" is the new tail of the new rotated LL so its next must be null and we have set it so.
+        return newHead;
+    }
+}
