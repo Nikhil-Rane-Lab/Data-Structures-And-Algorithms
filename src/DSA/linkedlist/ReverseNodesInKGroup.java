@@ -38,4 +38,11 @@ public class ReverseNodesInKGroup {
 
         return dummy.next;
     }
+
+    //The second while loop runs through the list and processes k nodes at a time.
+    // Each group of k nodes is reversed in O(k) time.
+    // Since we process the entire list and each node is visited and manipulated a constant number of times,
+    // this loop also takes O(n) time in total.
+    //TC: O(n)
+    //SC: O(1)
 }
