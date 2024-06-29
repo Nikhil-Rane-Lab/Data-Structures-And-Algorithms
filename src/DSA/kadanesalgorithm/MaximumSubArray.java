@@ -6,9 +6,9 @@ public class MaximumSubArray {
     public int maxSubArray(int[] nums) {
 
         int maxCurrent = nums[0]; // initialized to the first element of the array.
-                                  // This variable will store the maximum sum of the subarray ending at the current position.
+                                  // This variable will store the maximum sum of the subarray "ending at the current position".
         int maxGlobal = nums[0];  // this also initialized to the first element of the array.
-                                  // This variable will store the maximum sum of any subarray found so far.
+                                  // This variable will store the maximum sum of any subarray "found so far".
 
         for (int i = 1; i < nums.length; i++) {
             maxCurrent = Math.max(nums[i], maxCurrent + nums[i]);// This step decides whether to start a new subarray at the current
