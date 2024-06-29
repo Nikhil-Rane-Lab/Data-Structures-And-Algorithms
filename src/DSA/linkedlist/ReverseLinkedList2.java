@@ -18,19 +18,19 @@ public class ReverseLinkedList2 {
             prev = prev.next;
         }
 
-        ListNode start = prev.next; // `start` will point to the beginning of the part to be reversed
-        ListNode then = start.next; // `then` will point to the node that will be moved during the reversing process
+        ListNode curr = prev.next; // `curr` will point to the beginning of the part to be reversed
+        ListNode next = curr.next; // `next` will point to the node that will be moved during the reversing process
 
         // Reverse the sublist from left to right
-        // in every iteration of the below loop prev will be unchanged and start will be
+        // in every iteration of the below loop prev will be unchanged and curr will be
         // unchanged.
         for (int i = 0; i < right - left; i++) {
-            start.next = then.next; // start's ONLY purpose is to temporarily store the "then.next" to increment
-            // then by one position in every iteration
-            then.next = prev.next; // make "then" as the 1st node of the subsection as the second element
-            prev.next = then; // append then to the start of the sub-section
-            then = start.next; // now start serves its purpose by giving "then" to "then" (incrementing then)
-        } //MNEMONIC: STTP:PTTS with then in last two
+            curr.next = next.next; // curr's ONLY purpose is to temporarily store the "next.next" to increment
+            // next by one position in every iteration
+            next.next = prev.next; // make "next" as the 1st node of the subsection as the second element
+            prev.next = next; // append next to the curr of the sub-section
+            next = curr.next; // now curr serves its purpose by giving "next" to "next" (incrementing next)
+        } //MNEMONIC: CNNP:PNNC (mirror image) with only "next" in last two (Cartoon Network No Problem 😂)
 
         return dummy.next;
     }
