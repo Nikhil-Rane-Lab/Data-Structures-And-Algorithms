@@ -30,7 +30,7 @@ public class ReverseNodesInKGroup {
                 next.next = prev.next;
                 prev.next = next;
                 next = curr.next;
-            }
+            } //MNEMONIC: CNNP:PNNC (mirror image) with only "next" in last two (Cartoon Network No Problem 😂)
 
             prev = curr;
             count -= k;
