@@ -1,6 +1,6 @@
 package DSA.binarysearch;
 
-//* https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+//Q) https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
 public class FindMinimumInRotatedSortedArray {
 
     public int findMin(int[] nums) {
@@ -25,6 +25,6 @@ public class FindMinimumInRotatedSortedArray {
         return nums[left];
     }
 
-    //TC: O(log n)
-    //SC: O(n)
+    //* TC: O(log n)
+    //* SC: O(n)
 }
