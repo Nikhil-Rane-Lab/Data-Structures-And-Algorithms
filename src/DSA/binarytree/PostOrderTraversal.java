@@ -47,7 +47,7 @@ public class PostOrderTraversal {
 
         while (!nodeStack.isEmpty()) {
             TreeNode currNode = nodeStack.pop();
-            resultList.add(0, currNode.val);
+            resultList.add(0, currNode.val); //⭐
 
             if (currNode.left != null) {
                 nodeStack.push(currNode.left);
