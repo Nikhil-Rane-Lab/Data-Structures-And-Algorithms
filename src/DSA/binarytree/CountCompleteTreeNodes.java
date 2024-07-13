@@ -39,7 +39,8 @@ public class CountCompleteTreeNodes {
     }
 }
 
-
+//A complete binary tree is defined such that every level, except possibly the last, is fully filled, and all nodes are as far left as possible at the last level.
+//A perfect binary tree is a type of complete binary tree where all levels are fully filled.
     //TC: O((log n)^2)
     //SC: O(log n)
 /*
