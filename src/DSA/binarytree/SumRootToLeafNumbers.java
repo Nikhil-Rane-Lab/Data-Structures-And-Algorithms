@@ -22,4 +22,7 @@ public class SumRootToLeafNumbers {
         // Recur for left and right subtrees and sum the results
         return dfs(node.left, currentSum) + dfs(node.right, currentSum);
     }
+
+    //TC: O(N)
+    //SC: O(N)
 }
