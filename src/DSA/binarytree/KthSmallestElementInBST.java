@@ -3,6 +3,9 @@ package DSA.binarytree;
 //https://leetcode.com/problems/kth-smallest-element-in-a-bst
 public class KthSmallestElementInBST {
 
+    //APPROACH:
+    //An in-order traversal of a BST gives the nodes in ascending order. Therefore, performing an in-order traversal
+    // and keeping track of the number of nodes visited will allow us to find the kth smallest element efficiently.
     int count = 0;
     int result;
     public int kthSmallest(TreeNode root, int k) {
