@@ -1,6 +1,7 @@
 package DSA.binarytree;
 
 //https://leetcode.com/problems/minimum-distance-between-bst-nodes
+//https://leetcode.com/problems/minimum-absolute-difference-in-bst
 public class MinimumDistanceBetwweenBSTNodes {
 
     //APPROACH:
