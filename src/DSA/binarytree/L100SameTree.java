@@ -1,7 +1,8 @@
 package DSA.binarytree;
 
 //Q) https://leetcode.com/problems/same-tree
-public class SameTree {
+public class L100SameTree {
+//this question is similar to L101SymmetricTree
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
 
@@ -11,7 +12,7 @@ public class SameTree {
         }
 
         // If one node is null and the other is not, they are not the same
-        if (p == null || q == null) {
+        if (p == null || q == null) { //⚠️ this condition CANNOT be replaced by if (p != null || q != null) { return false}
             return false;
         }
 
@@ -23,9 +24,5 @@ public class SameTree {
 
     //TC: O(n) The function traverses each node in both trees exactly once
     //SC: O(h) where h is the height of the tree.
-    //The space complexity is determined by the recursion stack.
-    //  1) In the worst case, the height of the tree can be equal to the number of nodes in the tree,
-    //     which happens when the tree is skewed (all nodes are on one side).
-    //  2) For a balanced tree, the height h is O(logn).
-    //So, the space complexity is O(h), where ℎ h can range from O(logn) (for a balanced tree) to O(n) (for a skewed tree).
+    //where h can range from O(logn) (for a balanced tree) to O(n) (for a skewed tree).
 }

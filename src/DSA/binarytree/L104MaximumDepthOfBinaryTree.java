@@ -1,7 +1,7 @@
 package DSA.binarytree;
 
 //Q) https://leetcode.com/problems/maximum-depth-of-binary-tree
-public class MaximumDepthOfBinaryTree {
+public class L104MaximumDepthOfBinaryTree {
 //🤩 https://www.youtube.com/watch?v=eD3tmO66aBA
 
     public int maxDepth(TreeNode root) {
