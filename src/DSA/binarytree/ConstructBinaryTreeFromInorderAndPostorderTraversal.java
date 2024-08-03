@@ -7,18 +7,51 @@ import java.util.Map;
 public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
 //https://www.youtube.com/watch?v=LgLRTaEMRVc
 
-    public TreeNode buildTree(int[] inOrder, int[] postOrder) {
+    int postOrderIndex;
+    Map<Integer, Integer> inOrderValueToIndexMap;
+    public TreeNode buildTree1(int[] inOrder, int[] postOrder) {
+        postOrderIndex = postOrder.length - 1;
+        inOrderValueToIndexMap = new HashMap<>();
+
+        // Map inorder values to their indices
+        for (int i = 0; i < inOrder.length; i++) {
+            inOrderValueToIndexMap.put(inOrder[i], i);
+        }
+
+        return constructBinaryTree(postOrder, 0, inOrder.length - 1);
+    }
+
+    private TreeNode constructBinaryTree(int[] postOrder, int inOrderStart, int inOrderEnd) {
+        if (inOrderStart > inOrderEnd) {
+            return null;
+        }
+
+        // Get the root value from the postorder array
+        int val = postOrder[postOrderIndex--];
+        TreeNode root = new TreeNode(val);
+
+        // Root splits inorder list into left and right subtrees
+        Integer inOrderIndex = inOrderValueToIndexMap.get(val);
+
+        // Build the right subtree first because of the postorder traversal
+        root.right = constructBinaryTree(postOrder, inOrderIndex + 1, inOrderEnd);
+        root.left = constructBinaryTree(postOrder, inOrderStart, inOrderIndex - 1);
+        return root;
+    }
+
+    //*********************************************************************************************************************
+    public TreeNode buildTree2(int[] inOrder, int[] postOrder) {
         Map<Integer, Integer> inOrderIndexMap = new HashMap<>();
         for (int i = 0; i < inOrder.length; i++) {
             inOrderIndexMap.put(inOrder[i], i);
         }
 
-        return constructBinaryTree(inOrder, 0, inOrder.length - 1,
+        return constructBinaryTree(0, inOrder.length - 1,
                 postOrder, 0, postOrder.length - 1,
                 inOrderIndexMap);
     }
 
-    private TreeNode constructBinaryTree(int[] inOrder, int inStart, int inEnd,
+    private TreeNode constructBinaryTree(int inStart, int inEnd,
                                          int[] postOrder, int postStart, int postEnd,
                                          Map<Integer, Integer> inOrderIndexMap) {
         if (inStart > inEnd || postStart > postEnd) {
@@ -34,14 +67,14 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
         int leftSubTreeSize = inOrderRootIndex - inStart;
 
         // Recursively build the left subtree
-        root.left = constructBinaryTree(inOrder, inStart, inOrderRootIndex - 1,
-                                        postOrder, postStart, postStart + leftSubTreeSize - 1,
-                                        inOrderIndexMap);
+        root.left = constructBinaryTree(inStart, inOrderRootIndex - 1,
+                postOrder, postStart, postStart + leftSubTreeSize - 1,
+                inOrderIndexMap);
 
         // Recursively build the right subtree
-        root.right = constructBinaryTree(inOrder, inOrderRootIndex + 1, inEnd,
-                                         postOrder, postStart + leftSubTreeSize, postEnd - 1,
-                                         inOrderIndexMap);
+        root.right = constructBinaryTree(inOrderRootIndex + 1, inEnd,
+                postOrder, postStart + leftSubTreeSize, postEnd - 1,
+                inOrderIndexMap);
 
         return root;
     }
