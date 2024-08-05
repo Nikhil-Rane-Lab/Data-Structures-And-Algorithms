@@ -1,7 +1,7 @@
 package DSA.binarytree;
 
 //Q) https://leetcode.com/problems/flatten-binary-tree-to-linked-list
-public class FlattenBinaryTreeToLinkedList {
+public class L114FlattenBinaryTreeToLinkedList {
 
     //* 2 Approaches
 //https://www.youtube.com/watch?v=sWf7k1x9XR4

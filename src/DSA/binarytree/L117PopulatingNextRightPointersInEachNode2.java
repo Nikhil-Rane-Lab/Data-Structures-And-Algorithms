@@ -12,29 +12,29 @@ public class L117PopulatingNextRightPointersInEachNode2 {
             return null;
         }
 
-        Node curr = root;
+        Node currLevel = root;
 
-//      The outer while loop runs as long as there are nodes to process at the current level.
-        while (curr != null) {
+//      The outer while loop runs once for each level of the binary tree.
+        while (currLevel != null) {
             Node dummy = new Node(0);  // Dummy node to track the start of the next level
-            Node tail = dummy; // Tail node to build the next level's linked list
+            Node tail = dummy; // Pointer to build the next level.
 
             // Traverse the CURRENT level and connect nodes for the next level
-            while (curr != null) {
+            while (currLevel != null) {
 
-                if (curr.left != null) {
-                    tail.next = curr.left;
+                if (currLevel.left != null) {
+                    tail.next = currLevel.left;
                     tail = tail.next;
                 }
-                if (curr.right != null) {
-                    tail.next = curr.right;
+                if (currLevel.right != null) {
+                    tail.next = currLevel.right;
                     tail = tail.next;
                 }
-                curr = curr.next;
+                currLevel = currLevel.next; // Move to the next node in the current level.
             }
 
             // Move to the next level
-            curr = dummy.next;
+            currLevel = dummy.next;
         }
 
         return root;
@@ -60,7 +60,7 @@ public class L117PopulatingNextRightPointersInEachNode2 {
                 node.next = nextRightNode;
                 nextRightNode = node;
 
-                if (node.right != null) { //⭐VVIMP: RIGHT node always needs to be added first in the queue THEN the LEFT ndode
+                if (node.right != null) { //⭐VVIMP: RIGHT node always needs to be added first in the queue THEN the LEFT node
                     queue.offer(node.right);
                 }
 

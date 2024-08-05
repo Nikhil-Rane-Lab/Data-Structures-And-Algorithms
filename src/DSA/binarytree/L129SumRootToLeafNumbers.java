@@ -1,6 +1,6 @@
 package DSA.binarytree;
 
-public class SumRootToLeafNumbers {
+public class L129SumRootToLeafNumbers {
 
     public int sumNumbers(TreeNode root) {
         return dfs(root, 0);
@@ -12,7 +12,7 @@ public class SumRootToLeafNumbers {
             return 0;
         }
 
-        currentSum = (currentSum * 10) + node.val;
+        currentSum = (currentSum * 10) + node.val;  // Update the current number formed by this path
 
         if (node.left == null && node.right == null) {
             // Leaf node, return the current number
