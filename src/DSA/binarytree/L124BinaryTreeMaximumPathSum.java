@@ -1,7 +1,7 @@
 package DSA.binarytree;
 
 //https://leetcode.com/problems/average-of-levels-in-binary-tree
-public class BinaryTreeMaximumPathSum {
+public class L124BinaryTreeMaximumPathSum {
 //https://www.youtube.com/watch?v=WszrfSwMz58
 
     int maxPathSum;

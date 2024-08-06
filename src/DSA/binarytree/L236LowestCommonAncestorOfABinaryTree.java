@@ -1,7 +1,7 @@
 package DSA.binarytree;
 
 //Q) https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
-public class LowestCommonAncestorOfABinaryTree {
+public class L236LowestCommonAncestorOfABinaryTree {
 //https://www.youtube.com/watch?v=_-QHfMDde90
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -28,6 +28,4 @@ public class LowestCommonAncestorOfABinaryTree {
 
 //TC: O(n) where N is the number of nodes in the tree.
 // This is because, in the worst case, we might have to visit all the nodes.
-//SC : O(h) O(H), where H is the height of the tree. This is due to the recursion stack,
-// which in the worst case of a skewed tree, can be equal to the number of nodes.
-// In a balanced tree, it would be log(N).
+//SC : O(H), where H is the height of the tree ranges from log(N) for balanced tree to N for skewed tree.
