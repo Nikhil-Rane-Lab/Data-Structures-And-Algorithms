@@ -10,6 +10,7 @@ public class L530MinimumAbsoluteDifference {
         minDiff = Integer.MAX_VALUE;
         prev = null;
         inOrder(root);
+        return minDiff;
     }
 
     private void inOrder(TreeNode node) {
