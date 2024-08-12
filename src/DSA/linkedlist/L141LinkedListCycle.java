@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //https://leetcode.com/problems/linked-list-cycle
-public class LinkedListCycle {
+public class L141LinkedListCycle {
 
     //TODO 2 approaches
 //  Floyd's Tortoise and Hare algorithm

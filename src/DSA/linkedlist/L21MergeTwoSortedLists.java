@@ -1,7 +1,7 @@
 package DSA.linkedlist;
 
 //https://leetcode.com/problems/merge-two-sorted-lists
-public class MergeTwoSortedLists {
+public class L21MergeTwoSortedLists {
 
     public ListNode mergeTwoLists(ListNode listA, ListNode listB) {
         ListNode dummy = new ListNode(0);
@@ -29,8 +29,6 @@ public class MergeTwoSortedLists {
         return dummy.next;
     }
 
-    /**
-     TC: O(n+m) where n = listA's lenght and m = listB's length. Since each node from both lists is processed exactly once, the total number of operations is proportional to the sum of the lengths of the two lists.
-     SC: O(1)
-     */
+//     TC: O(n+m) where n = listA's length and m = listB's length. Since each node from both lists is processed exactly once, the total number of operations is proportional to the sum of the lengths of the two lists.
+//     SC: O(1)
 }

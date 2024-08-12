@@ -2,11 +2,13 @@ package DSA.linkedlist;
 
 import java.util.Stack;
 
-public class ReverseLinkedList2 {
+//https://leetcode.com/problems/reverse-linked-list-ii
+public class L92ReverseLinkedList2 {
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (head == null || left == right)
+        if (head == null || left == right) {
             return head;
+        }
 
         // Create a dummy node to handle edge cases where reversing starts at the head
         ListNode dummy = new ListNode(0);
@@ -39,13 +41,15 @@ public class ReverseLinkedList2 {
 
     public ListNode reverseBetweenUsingStack(ListNode head, int left, int right) {
 
-        if (head == null || left == right)
+        if (head == null || left == right) {
             return head;
+        }
 
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode prev = dummy;
 
+        // Move `pre` to the node just before the reversing part
         for (int i = 1; i < left; i++) {
             prev = prev.next;
         }

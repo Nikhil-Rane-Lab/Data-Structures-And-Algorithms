@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 //https://leetcode.com/problems/copy-list-with-random-pointer
-public class CopyListWithRandomPointer {
+public class L138CopyListWithRandomPointer {
+//In this we simply have to make a (deep) copy of the original list such that no node in the new copied list
+// (be it "node" itself, its "next" pointer or its "random" pointer) points to (i.e., reuse) any node in the original list.
+// means all nodes related to new list should be brand new nodes.
 
     public Node copyRandomList(Node head) {
         Node original = head;
@@ -20,12 +23,12 @@ public class CopyListWithRandomPointer {
         original = head;
         while (original != null) {
             Node copyNode = originalToCopyMap.get(original);
-            copyNode.next = original.next == null ? null : originalToCopyMap.get(original.next);
-            copyNode.random = original.random == null ? null : originalToCopyMap.get(original.random);
+            copyNode.next = originalToCopyMap.get(original.next);
+            copyNode.random = originalToCopyMap.get(original.random);
             original = original.next;
         }
 
-        return originalToCopyMap.get(head); //⭐
+        return originalToCopyMap.get(head); //⭐ returning the head of the NEW COPIED LIST
     }
 
     // TC: O(N)

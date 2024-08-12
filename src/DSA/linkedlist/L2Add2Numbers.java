@@ -1,10 +1,10 @@
 package DSA.linkedlist;
 
 //https://leetcode.com/problems/add-two-numbers
-public class Add2Numbers {
+public class L2Add2Numbers {
 
     //instead of adding from right to left, we are adding from left to right as the numbers are reversed
-    //as linkedList can only be traversed in forward directiom
+    //as linkedList can only be traversed in forward direction
     public ListNode addTwoNumbers(ListNode list1, ListNode list2) {
         // Create a dummy node to serve as the head of the result list
         ListNode dummy = new ListNode(0);
