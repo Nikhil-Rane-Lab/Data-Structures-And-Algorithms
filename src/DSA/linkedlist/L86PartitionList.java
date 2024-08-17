@@ -1,8 +1,10 @@
 package DSA.linkedlist;
 
 //https://leetcode.com/problems/partition-list
-public class PartitionList {
-
+public class L86PartitionList {
+//In this question, we have to rearrange the original linked list in such a way that all the elements which are strictly
+//lesser than X should come before X and maintain the relative order within themselves.
+//Then we have to simply return the remaining list maintaining the relative order within themselves.
     public ListNode partition(ListNode head, int x) {
         ListNode lessDummy = new ListNode(0);
         ListNode greaterDummy = new ListNode(0);
@@ -24,7 +26,7 @@ public class PartitionList {
         }
 
         greater.next = null;           // End the greater list
-        less.next = greaterDummy.next; // Connect the less list with the greater list
+        less.next = greaterDummy.next; // Connect the end of less list with the start of greater list
 
         return lessDummy.next; // Return the head of the less list, skipping the dummy node
     }

@@ -1,7 +1,7 @@
 package DSA.linkedlist;
 
 //https://leetcode.com/problems/rotate-list
-public class RotateList {
+public class L61RotateList {
 
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null || head.next == null || k == 0) {
@@ -11,12 +11,14 @@ public class RotateList {
         int len = 1;//⚠️
         ListNode curr = head;
 
-        while (curr.next != null) { //⭐The reason we have given this condition instead of while (curr != null) to calculate length of LL is because we want the "curr" to be non-null
+        while (curr.next != null) { //⭐The reason we have given this condition instead of while (curr != null) to
+                                    // calculate length of LL is because we want the "curr" to be non-null
             curr = curr.next;
             len++;
         }
 
-        k = k % len; //😱 it is not (len%k) as we generally think that numerator should be higher than denominator which ⚠️DOES NOT⚠️ apply in this case!
+        k = k % len; //😱 it is not (len%k) as we generally think that numerator should be higher than denominator
+                     // which ⚠️DOES NOT⚠️ apply in this case!
         if (k == 0) {
             return head; //do nothing, return LL as it is
         }
