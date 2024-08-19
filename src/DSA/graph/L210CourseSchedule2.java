@@ -1,9 +1,6 @@
 package DSA.graph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 //https://leetcode.com/problems/course-schedule-ii
 public class L210CourseSchedule2 {
