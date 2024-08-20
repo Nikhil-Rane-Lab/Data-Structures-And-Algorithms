@@ -3,7 +3,7 @@ package DSA.graph;
 import java.util.ArrayList;
 
 //https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph
-public class DetectCycleInUndirectedGraph {
+public class GFGDetectCycleInUndirectedGraph {
 //https://www.youtube.com/watch?v=zQ3zgFypzX4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=12&pp=iAQB
 
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
