@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GFGNumberOfProvinces {
 //here input is adjacency matrix given as adjacency list 🥲
 
-    static int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
+    int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
         boolean[] visited = new boolean[V];
 
         int count = 0;
@@ -20,7 +20,7 @@ public class GFGNumberOfProvinces {
         return count;
     }
 
-    private static void dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] visited) {
+    private void dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] visited) {
         visited[node] = true;
 
         for (int i = 0; i < adj.size(); i++) {
