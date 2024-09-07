@@ -2,7 +2,7 @@ package DSA.array;
 
 //https://leetcode.com/problems/trapping-rain-water
 public class L42TrappingRainWater {
-//https://leetcode.com/problems/trapping-rain-water
+//https://www.youtube.com/watch?v=m18Hntz4go8
 
     public int trap(int[] height) {
 
