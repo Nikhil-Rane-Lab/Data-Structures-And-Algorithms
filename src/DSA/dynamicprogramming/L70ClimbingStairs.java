@@ -1,4 +1,4 @@
-package DSA.DynamicProgramming;
+package DSA.dynamicprogramming;
 
 //https://leetcode.com/problems/climbing-stairs
 public class L70ClimbingStairs {

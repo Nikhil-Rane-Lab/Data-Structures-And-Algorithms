@@ -1,4 +1,4 @@
-package DSA.DynamicProgramming;
+package DSA.dynamicprogramming;
 
 //https://leetcode.com/problems/house-robber
 public class L198HouseRobber {

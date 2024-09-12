@@ -1,4 +1,4 @@
-package DSA.DynamicProgramming;
+package DSA.dynamicprogramming;
 
 import java.util.Arrays;
 
