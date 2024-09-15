@@ -13,7 +13,7 @@ public class L57InsertInterval {
         int n = intervals.length;
 
         // Step 1: Add all intervals that come before newInterval
-        while (i < n && intervals[i][1] < newInterval[0]) {
+        while (i < n && intervals[i][1] < newInterval[0]) { //⭐ memorize
             result.add(intervals[i]);
             i++;
         }
