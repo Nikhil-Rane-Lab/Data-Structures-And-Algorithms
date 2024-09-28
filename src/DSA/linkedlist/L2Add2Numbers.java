@@ -14,7 +14,7 @@ public class L2Add2Numbers {
 
         // Traverse both lists and the carry, continue until both lists and carry are exhausted
         while (list1 != null || list2 != null || carry != 0) {
-            int sum = carry;
+            int sum = carry; //⭐ not sum += carry
 
             if (list1 != null) {
                 sum += list1.val;

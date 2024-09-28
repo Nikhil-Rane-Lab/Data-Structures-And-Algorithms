@@ -15,13 +15,13 @@ public class L92ReverseLinkedList2 {
         dummy.next = head;
         ListNode prev = dummy;
 
-        // Move `pre` to the node just before the reversing part
+        // Move "prev" to the node just before the reversing part
         for (int i = 1; i < left; i++) {
             prev = prev.next;
         }
 
-        ListNode curr = prev.next; // `curr` will point to the beginning of the part to be reversed
-        ListNode next = curr.next; // `next` will point to the node that will be moved during the reversing process
+        ListNode curr = prev.next; // 'curr' will point to the beginning of the part to be reversed
+        ListNode next = curr.next; // 'next' will point to the node that will be moved during the reversing process
 
         // Reverse the sublist from left to right
         // in every iteration of the below loop prev will be unchanged and curr will be
@@ -49,7 +49,7 @@ public class L92ReverseLinkedList2 {
         dummy.next = head;
         ListNode prev = dummy;
 
-        // Move `pre` to the node just before the reversing part
+        // Move "prev" to the node just before the reversing part
         for (int i = 1; i < left; i++) {
             prev = prev.next;
         }

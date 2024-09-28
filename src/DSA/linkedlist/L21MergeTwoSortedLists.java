@@ -29,6 +29,9 @@ public class L21MergeTwoSortedLists {
         return dummy.next;
     }
 
-//     TC: O(n+m) where n = listA's length and m = listB's length. Since each node from both lists is processed exactly once, the total number of operations is proportional to the sum of the lengths of the two lists.
-//     SC: O(1)
+//     TC: O(n+m) where n = listA's length and m = listB's length. Since each node from both lists is processed exactly
+//     once, the total number of operations is proportional to the sum of the lengths of the two lists.
+//     This will happen in worst cast when listA and listB are of exactly same size
+
+//     SC: O(1) The merged list reuses the existing nodes from listA and listB, so no additional space is allocated for nodes.
 }
