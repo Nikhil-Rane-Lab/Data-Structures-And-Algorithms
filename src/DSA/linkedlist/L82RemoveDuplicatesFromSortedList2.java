@@ -18,9 +18,8 @@ public class L82RemoveDuplicatesFromSortedList2 {
                 prev.next = head.next; // Skip the last node of the duplicate group. Skip all duplicates. Refer ⚠️
             } else {
                 prev = prev.next; //prev is used to connect nodes that are confirmed to be non-duplicates.
-                //⚠️ The reason it is not done above in the "if" block is because the next element which we know is not-duplicate
-                // (i.e., not 1) may be duplicate of its own kind, like it may be giving rise to a series of 2's ([2,2,2...])
-                //or series of 3's like ([3,3,3...]) etc
+                //⚠️ This isn't done in the "if" block because the next non-duplicate element (e.g., not 1) could start
+                // a new series of duplicates, like 2's ([2, 2, 2...]) or 3's ([3, 3, 3...]) etc.
             }
 
             head = head.next;

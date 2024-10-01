@@ -5,31 +5,25 @@ public class L19RemoveNthNodeFromEndOfList {
 
     //APPROACH: Use two pointers. Move first pointer N steps forward. Then move first to the end, maintaining the gap of n nodes between first and second
     public ListNode removeNthFromEndOptimisedSinglePass(ListNode head, int n) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(-1);
         dummy.next = head;
-        ListNode first = dummy;
-        ListNode second = dummy;
+        ListNode leader = dummy, follower = dummy;
 
-        // Move first pointer n steps ahead
-        for (int i = 0; i < n; i++) {
-            first = first.next;
+        // Move leader ahead by n+1 steps to maintain the gap between leader and follower
+        for (int i = 0; i <= n; i++) {
+            leader = leader.next;
         }
 
-        // Special case: If first.next is null, it means n is equal to the size of the linked list
-        // Hence, the node to remove is the head itself
-        if (first.next == null) {
-            return head.next;
+        // Move both leader and follower until leader reaches the end
+        while (leader != null) {
+            //if the node to be removed is head itself then this while loop will not run
+            leader = leader.next;
+            follower = follower.next;
         }
 
-        // Move first to the end, maintaining the gap of n nodes between first and second
-        while (first.next != null) {
-            first = first.next;
-            second = second.next;
-        }
+        follower.next = follower.next.next;
 
-        // now second is pointing to the node to be removed
         // Remove the nth node from the end
-        second.next = second.next.next;
         return dummy.next;
     }
     //TC: O(n)

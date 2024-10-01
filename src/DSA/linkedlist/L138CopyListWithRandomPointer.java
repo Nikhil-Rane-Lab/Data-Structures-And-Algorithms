@@ -7,7 +7,7 @@ import java.util.Map;
 public class L138CopyListWithRandomPointer {
 //In this we simply have to make a (deep) copy of the original list such that no node in the new copied list
 // (be it "node" itself, its "next" pointer or its "random" pointer) points to (i.e., reuse) any node in the original list.
-// means all nodes related to new list should be brand new nodes.
+// means all nodes related to new list should be brand-new nodes.
 
     public Node copyRandomList(Node head) {
         Node original = head;
@@ -23,7 +23,7 @@ public class L138CopyListWithRandomPointer {
         original = head;
         while (original != null) {
             Node copyNode = originalToCopyMap.get(original);
-            copyNode.next = originalToCopyMap.get(original.next);
+            copyNode.next = originalToCopyMap.get(original.next); //⭐if original.next is null then hashMap will not give NPE but will return null which is desirable.
             copyNode.random = originalToCopyMap.get(original.random);
             original = original.next;
         }
