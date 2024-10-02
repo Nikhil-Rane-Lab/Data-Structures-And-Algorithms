@@ -9,13 +9,13 @@ public class ReverseLinkedList {
         ListNode next = null;
 
         while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            next = curr.next; // Store the next node
+            curr.next = prev; // Reverse the link
+            prev = curr;      // Move prev forward
+            curr = next;      // Move curr forward
         }
 
-        return prev;
+        return prev; // New head of the reversed list
     }
 
     //TC: O(n)
