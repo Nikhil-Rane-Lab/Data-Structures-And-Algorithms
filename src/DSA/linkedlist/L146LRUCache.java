@@ -30,9 +30,14 @@ public class L146LRUCache {
             return -1;
         }
 
+        transferNodeToHead(node);
+        return node.value;
+    }
+
+    private void transferNodeToHead(Node node) {
+        // below 2 operations effectively means transferring the node from wherever it is to the head
         removeNode(node); //In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
         insertAsHead(node);
-        return node.value;
     }
 
     private void insertAsHead(Node node) {
@@ -52,11 +57,10 @@ public class L146LRUCache {
         if (keyToNodeMap.containsKey(key)) {
             Node node = keyToNodeMap.get(key);
             node.value = value;
-            removeNode(node);
-            insertAsHead(node);
+            transferNodeToHead(node);
         } else {
             if (capacity == keyToNodeMap.size()) {
-                keyToNodeMap.remove(tail.prev.key);
+                keyToNodeMap.remove(tail.prev.key); //⭐ here key is needed so it is there in Node class
                 removeNode(tail.prev);
             }
             Node node = new Node(key, value);

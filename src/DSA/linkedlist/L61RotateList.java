@@ -8,7 +8,7 @@ public class L61RotateList {
             return head;
         }
 
-        int len = 1;//⚠️
+        int len = 1; //⚠️
         ListNode curr = head;
 
         while (curr.next != null) { //⭐The reason we have given this condition instead of while (curr != null) to
@@ -17,10 +17,10 @@ public class L61RotateList {
             len++;
         }
 
-        k = k % len; //😱 it is not (len%k) as we generally think that numerator should be higher than denominator
+        k = k % len; //😱 it is not (len % k) as we generally think that numerator should be higher than denominator
                      // which ⚠️DOES NOT⚠️ apply in this case!
         if (k == 0) {
-            return head; //do nothing, return LL as it is
+            return head; // do nothing, return LL as it is
         }
 
         int numOfStepsToReachNewTail = len - k;
