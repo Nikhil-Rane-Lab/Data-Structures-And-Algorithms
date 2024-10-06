@@ -1,12 +1,11 @@
 package DSA.binarytree;
 
-import java.sql.Time;
 import java.util.LinkedList;
 import java.util.Queue;
 
 //https://leetcode.com/problems/symmetric-tree
 public class L101SymmetricTree {
-    //this question is similar to L100SameTree
+//this question is similar to L100SameTree
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
@@ -30,6 +29,10 @@ public class L101SymmetricTree {
                    && isMirror(t1.left, t2.right)
                    && isMirror(t1.right, t2.left);
     }
+
+//      Time Complexity:
+//      TC: O(n), where n is the number of nodes in the tree.
+//      SC: O(h), which can range from O(logn) to O(n).
 
     public boolean isSymmetric2(TreeNode root) {
 
@@ -66,8 +69,8 @@ public class L101SymmetricTree {
         return true;
     }
 
-//      Time Complexity:
-//      Recursive Approach:
-//      TC: O(n), where n is the number of nodes in the tree.
-//      SC: O(h), which can range from O(logn) to O(n).
+// TC: O(n)
+// SC: O(n) in the worst case (for a full tree with maximum nodes at the last level),
+// but for a balanced tree, it is O(log n) due to the depth of the tree.
+// The queue will store nodes from the widest level of the tree.
 }

@@ -22,7 +22,7 @@ public class L100SameTree {
                     && isSameTree(p.right, q.right);
     }
 
-    //TC: O(n) The function traverses each node in both trees exactly once
-    //SC: O(h) where h is the height of the tree.
-    //where h can range from O(logn) (for a balanced tree) to O(n) (for a skewed tree).
+// TC: O(n) The function traverses each node in both trees exactly once
+// SC: O(h) where h is the height of the tree.
+// where h can range from O(logn) (for a balanced tree) to O(n) (for a skewed tree).
 }
