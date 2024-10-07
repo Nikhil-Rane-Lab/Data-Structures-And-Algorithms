@@ -3,14 +3,15 @@ package DSA.binarytree;
 import java.util.HashMap;
 import java.util.Map;
 
-//Q) https://www.youtube.com/watch?v=aZNaLrVebKQ
+// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
 public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
+// https://www.youtube.com/watch?v=aZNaLrVebKQ
 
     int preOrderIndex;
     Map<Integer, Integer> inOrderValueToIndexMap;
 
     public TreeNode buildTree1(int[] preOrder, int[] inOrder) {
-        preOrderIndex = 0;
+        preOrderIndex = 0; //⭐
         inOrderValueToIndexMap = new HashMap<>();
         for (int i = 0; i < inOrder.length; i++) { // Build a hashmap to store the value -> index relations
             inOrderValueToIndexMap.put(inOrder[i], i);
@@ -26,7 +27,7 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
 
         // Select the preOrderIndex element as the root and increment it
         int val = preOrder[preOrderIndex++];
-        TreeNode treeNode = new TreeNode(val);
+        TreeNode treeNode = new TreeNode(val); // this will be the root of the tree / sub-tree
 
         // Build the left and right subtree
         // excluding inorderIndexMap[rootValue] element because it's the root
@@ -36,6 +37,8 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
         return treeNode;
     }
 
+// TC: O(n)
+// SC: O(n)
 
     //********************************************************************************************************************************
     public TreeNode buildTree2(int[] preorder, int[] inorder) {
@@ -66,6 +69,5 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
         return root;
     }
 
-    //TC: O(n)
-    //SC: O(n)
+
 }

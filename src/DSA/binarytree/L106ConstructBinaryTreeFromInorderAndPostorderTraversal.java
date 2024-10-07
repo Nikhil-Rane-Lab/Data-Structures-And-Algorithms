@@ -3,14 +3,14 @@ package DSA.binarytree;
 import java.util.HashMap;
 import java.util.Map;
 
-//Q) https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
-public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
+//leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
 //https://www.youtube.com/watch?v=LgLRTaEMRVc
 
     int postOrderIndex;
     Map<Integer, Integer> inOrderValueToIndexMap;
     public TreeNode buildTree1(int[] inOrder, int[] postOrder) {
-        postOrderIndex = postOrder.length - 1;
+        postOrderIndex = postOrder.length - 1; //⭐
         inOrderValueToIndexMap = new HashMap<>();
 
         // Map inorder values to their indices
@@ -33,7 +33,7 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
         // Root splits inorder list into left and right subtrees
         Integer inOrderIndex = inOrderValueToIndexMap.get(val);
 
-        // Build the right subtree first because of the postorder traversal
+        // ⭐ Build the right subtree first because of the postorder traversal
         root.right = constructBinaryTree(postOrder, inOrderIndex + 1, inOrderEnd);
         root.left = constructBinaryTree(postOrder, inOrderStart, inOrderIndex - 1);
         return root;

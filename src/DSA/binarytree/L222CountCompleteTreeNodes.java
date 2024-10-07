@@ -20,7 +20,7 @@ public class L222CountCompleteTreeNodes {
         int leftHeight = getLeftHeight(root);
         int rightHeight = getRightHeight(root);
 
-        if (leftHeight == rightHeight) { //it means its a not just "COMPLETE" but a "PERFECT" Binary Tree.
+        if (leftHeight == rightHeight) { //it means its not just a "COMPLETE" but a "PERFECT" Binary Tree.
             return (int) Math.pow(2, leftHeight) - 1; //⭐memorise: this is the formula to get the total number of nodes in a "PERFECT" binary search tree.
         } else {
             // Otherwise, recursively count nodes in left and right subtrees
@@ -47,7 +47,8 @@ public class L222CountCompleteTreeNodes {
     }
 }
 
-//A complete binary tree is defined such that every level, except possibly the last, is fully filled, and all nodes are as far left as possible at the last level.
-//A perfect binary tree is a type of complete binary tree where all levels are fully filled.
-//TC: O((log n)^2) because calculating the depth is O(logn) and this is done for each level.
-//SC: O(log n)
+// A complete binary tree is defined such that every level, except possibly the last, is fully filled, and all nodes are
+// as far left as possible at the last level.
+// A perfect binary tree is a type of complete binary tree where all levels are fully filled.
+// TC: O((log n)^2) because calculating the depth is O(logn) and this is done for each level.
+// SC: O(log n)
