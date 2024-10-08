@@ -12,29 +12,31 @@ public class L117PopulatingNextRightPointersInEachNode2 {
             return null;
         }
 
-        Node currLevel = root;
+        Node currLevelNode = root;
 
-//      The outer while loop runs once for each level of the binary tree.
-        while (currLevel != null) {
+//      The outer while loop runs ONCE for each level of the binary tree.
+        while (currLevelNode != null) {
             Node dummy = new Node(0);  // Dummy node to track the start of the next level
-            Node tail = dummy; // Pointer to build the next level.
+            Node tailOfNextLevel = dummy; // Pointer to build the next level.
 
-            // Traverse the CURRENT level and connect nodes for the next level
-            while (currLevel != null) {
+            // Traverse the CURRENT level and connect nodes for the NEXT level
+            while (currLevelNode != null) {
 
-                if (currLevel.left != null) {
-                    tail.next = currLevel.left;
-                    tail = tail.next;
+                if (currLevelNode.left != null) {
+                    tailOfNextLevel.next = currLevelNode.left;
+                    tailOfNextLevel = tailOfNextLevel.next;
                 }
-                if (currLevel.right != null) {
-                    tail.next = currLevel.right;
-                    tail = tail.next;
+                if (currLevelNode.right != null) {
+                    tailOfNextLevel.next = currLevelNode.right;
+                    tailOfNextLevel = tailOfNextLevel.next;
                 }
-                currLevel = currLevel.next; // Move to the next node in the current level.
+                currLevelNode = currLevelNode.next; // 💫 Move to the next node in the current level. Here we can jump to next
+            // node of same level because in the previous iteration of the outer for-loop we have already connected the
+            // "next" pointer of each node to next right node. So we are reaping benefits of previous outer for-loop iteration
             }
 
-            // Move to the next level
-            currLevel = dummy.next;
+            // Move/Jump to the next level
+            currLevelNode = dummy.next;
         }
 
         return root;

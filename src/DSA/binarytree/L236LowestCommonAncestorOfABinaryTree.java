@@ -1,6 +1,6 @@
 package DSA.binarytree;
 
-//Q) https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
 public class L236LowestCommonAncestorOfABinaryTree {
 //https://www.youtube.com/watch?v=_-QHfMDde90
 
@@ -20,12 +20,12 @@ public class L236LowestCommonAncestorOfABinaryTree {
             return left;
         } else {
             // If both left and right are not null, this means p and q are found in different
-            // subtrees, so root is their LCA
+            // subtrees under this root node, so root is their LCA
             return root;
         }
     }
 }
 
-//TC: O(n) where N is the number of nodes in the tree.
+// TC: O(n) where N is the number of nodes in the tree.
 // This is because, in the worst case, we might have to visit all the nodes.
-//SC : O(H), where H is the height of the tree ranges from log(N) for balanced tree to N for skewed tree.
+// SC : O(H), where H is the height of the tree ranges from log(N) for balanced tree to N for skewed tree.
