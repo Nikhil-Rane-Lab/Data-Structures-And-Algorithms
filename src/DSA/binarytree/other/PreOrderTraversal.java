@@ -1,4 +1,6 @@
-package DSA.binarytree;
+package DSA.binarytree.other;
+
+import DSA.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

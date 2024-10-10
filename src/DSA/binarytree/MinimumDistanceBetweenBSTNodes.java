@@ -2,7 +2,7 @@ package DSA.binarytree;
 
 //https://leetcode.com/problems/minimum-distance-between-bst-nodes
 //https://leetcode.com/problems/minimum-absolute-difference-in-bst
-public class MinimumDistanceBetwweenBSTNodes {
+public class MinimumDistanceBetweenBSTNodes {
 
     //APPROACH:
     // in-order traversal yields the node values in a sorted order.

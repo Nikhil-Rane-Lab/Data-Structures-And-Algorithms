@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 //Q) https://leetcode.com/problems/binary-tree-level-order-traversal/
-public class BinaryLevelOrderTraversal {
+public class L102BinaryLevelOrderTraversal {
 //https://www.youtube.com/watch?v=EoAsWbO7sqg&list=PLkjdNRgDmcc0Pom5erUBU4ZayeU9AyRRu&index=8
 
     public List<List<Integer>> levelOrder(TreeNode root) {

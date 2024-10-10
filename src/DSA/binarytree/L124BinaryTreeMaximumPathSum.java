@@ -5,7 +5,6 @@ public class L124BinaryTreeMaximumPathSum {
 //https://www.youtube.com/watch?v=WszrfSwMz58
 
     int maxPathSum;
-
     public int maxPathSum(TreeNode root) {
         maxPathSum = Integer.MIN_VALUE;
         maxGain(root);
@@ -18,8 +17,10 @@ public class L124BinaryTreeMaximumPathSum {
         }
 
         // Recursively call maxGain for the left and right subtrees
-        int left = Math.max(0, maxGain(node.left));
-        int right = Math.max(0, maxGain(node.right));
+        int left = Math.max(0, maxGain(node.left)); //⭐ We ignore maxGain(node.left) if it's negative because it would
+        // reduce the total path sum. Instead of taking the full path through the subtree, we only take a "half path"
+        // by excluding the negative contribution, ensuring the sum is maximized.
+        int right = Math.max(0, maxGain(node.right)); // same as above
 
         // The price of the current path which includes the current node
         int currPathSum = left + right + node.val;
