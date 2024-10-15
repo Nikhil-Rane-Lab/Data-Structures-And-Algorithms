@@ -13,6 +13,8 @@ public class L530MinimumAbsoluteDifference {
         return minDiff;
     }
 
+    //💡inOrder is compulsorily as it will give you the node values in sorted order due to the properties of BSTs,
+    // making it easy to find the minimum difference between consecutive nodes.
     private void inOrder(TreeNode node) {
         if (node == null) {
             return;

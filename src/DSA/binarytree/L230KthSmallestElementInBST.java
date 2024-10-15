@@ -1,7 +1,7 @@
 package DSA.binarytree;
 
 //https://leetcode.com/problems/kth-smallest-element-in-a-bst
-public class KthSmallestElementInBST {
+public class L230KthSmallestElementInBST {
 
     //Approach:
     //An in-order traversal of a BST gives the nodes in ascending order. Therefore, performing an in-order traversal

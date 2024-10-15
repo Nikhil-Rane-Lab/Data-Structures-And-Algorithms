@@ -20,7 +20,7 @@ public class L102BinaryLevelOrderTraversal {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            int currLevelSize = queue.size();
+            int currLevelSize = queue.size(); //💡 this cannot be replaced inline as queue's size keeps on changing in each iteration of inner-loop.
 
             List<Integer> subList = new ArrayList<>();
             for (int i = 0; i < currLevelSize; i++) {
@@ -42,5 +42,6 @@ public class L102BinaryLevelOrderTraversal {
     }
 
     //TC: O(n) Each node is processed exactly once, and enqueuing and dequeuing operations take O(1) time.
-    //SC: O(n) The main space usage is the queue, which at most holds the nodes of one level. In the worst case, the largest level can be up to n/2 nodes.
+    //SC: O(n) The main space usage is the queue, which at most holds the nodes of one level.
+    // In the worst case, the largest level can be up to n/2 nodes.
 }

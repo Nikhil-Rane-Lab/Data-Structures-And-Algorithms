@@ -19,7 +19,7 @@ public class L103BinaryTreeZigZagLevelOrderTraversal {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
+            int levelSize = queue.size();  //💡 this cannot be replaced inline as queue's size keeps on changing in each iteration of inner-loop.
             List<Integer> levelList = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = queue.poll();
