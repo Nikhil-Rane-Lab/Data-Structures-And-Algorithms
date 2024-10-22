@@ -6,6 +6,11 @@ import java.util.Stack;
 public class L173BinarySearchTreeIterator {
 
     Stack<TreeNode> stack;
+    // Stack-based in-order traversal: We maintain a stack to simulate the recursion in an in-order traversal.
+    // Initially, we push all the left nodes from the root down to the leftmost node onto the stack.
+    // next(): When next() is called, we pop the top node from the stack (which will be the next smallest element),
+    // and if this node has a right child, we push all the left nodes of the right subtree onto the stack.
+    // This simulates inOrder traversal (left -> root -> right) order
 
     public L173BinarySearchTreeIterator(TreeNode root) {
         stack = new Stack<>();

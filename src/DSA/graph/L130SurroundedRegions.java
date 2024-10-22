@@ -1,14 +1,24 @@
 package DSA.graph;
 
-import java.sql.Time;
-
 //https://leetcode.com/problems/surrounded-regions
 public class L130SurroundedRegions {
+// https://www.youtube.com/watch?v=BtdgAys4yMk
 
-    public void solve(char[][] board) {
+/*
+    Approach:
+    DFS from Boundary: First, the algorithm identifies all 'O' cells that are connected to the boundary of the board
+    by starting DFS from each 'O' on the edges. These are temporarily marked as 'B' (boundary) to prevent them from
+    being converted to 'X'.
+
+    Conversion: After the DFS traversal, all the remaining 'O' cells, which are surrounded by 'X', are converted to 'X'.
+    The 'B' cells (which represent 'O's connected to the boundary) are reverted back to 'O'.
+*/
+
+public void solve(char[][] board) {
         int rowCount = board.length;
         int colCount = board[0].length;
 
+//      Step 1: Mark all 'O's connected to the boundary as 'B'
 //      This loop iterates over the first and last columns of the board for each row
         for (int i = 0; i < rowCount; i++) {
             if (board[i][0] == 'O') {
@@ -29,11 +39,12 @@ public class L130SurroundedRegions {
             }
         }
 
+        // Step 2: Convert all remaining 'O' to 'X', and 'B' back to 'O'
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
                 if (board[i][j] == 'O') {
                     board[i][j] = 'X';
-                } else if (board[i][j] == 'T') {
+                } else if (board[i][j] == 'B') {
                     board[i][j] = 'O';  // Revert unnecessary change
                 }
             }
@@ -41,7 +52,8 @@ public class L130SurroundedRegions {
     }
 
     private void dfs(char[][] board, int rowNum, int colNum) {
-        if (rowNum < 0 || colNum < 0 || rowNum >= board.length || colNum >= board[0].length || board[rowNum][colNum] != 'O') {
+        if (rowNum < 0 || colNum < 0 || rowNum >= board.length || colNum >= board[0].length || board[rowNum][colNum] != 'O') {4
+                // ⭐ board[rowNum][colNum] != 'O' as board[rowNum][colNum] can be 'X' or 'B' too
             return;
         }
 
