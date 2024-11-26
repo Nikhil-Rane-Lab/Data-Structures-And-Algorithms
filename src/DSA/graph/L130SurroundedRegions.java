@@ -52,7 +52,7 @@ public void solve(char[][] board) {
     }
 
     private void dfs(char[][] board, int rowNum, int colNum) {
-        if (rowNum < 0 || colNum < 0 || rowNum >= board.length || colNum >= board[0].length || board[rowNum][colNum] != 'O') {4
+        if (rowNum < 0 || colNum < 0 || rowNum >= board.length || colNum >= board[0].length || board[rowNum][colNum] != 'O') {
                 // ⭐ board[rowNum][colNum] != 'O' as board[rowNum][colNum] can be 'X' or 'B' too
             return;
         }
