@@ -7,18 +7,17 @@ import java.util.Queue;
 public class L542_01Matrix {
 //https://www.youtube.com/watch?v=edXdVwkYHF8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=15
 
-//https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#14b8604c11f38067a593e97b9574daf3
-    public int[][] updateMatrix(int[][] mat) {
-        int rowCount = mat.length;
-        int colCount = mat[0].length;
+    public int[][] updateMatrix(int[][] grid) {
+        int rowCount = grid.length;
+        int colCount = grid[0].length;
         int[][] distArr = new int[rowCount][colCount];
         Queue<int[]> queue = new LinkedList<>();
 
         // Initialize the distance matrix and enqueue all 0s
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
-                if (mat[i][j] == 0) {
-                    distArr[i][j] = 0; //⭐ this we know for sure!
+                if (grid[i][j] == 0) {
+                    distArr[i][j] = 0;
                     queue.offer(new int[]{i, j});
                 } else {
                     distArr[i][j] = Integer.MAX_VALUE;
@@ -29,7 +28,7 @@ public class L542_01Matrix {
         // Directions for moving up, down, left, right
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-        //BFS traversal
+        // BFS from each 0 cell
         while (!queue.isEmpty()) {
             int[] cell = queue.poll();
             int x = cell[0];
@@ -39,6 +38,7 @@ public class L542_01Matrix {
                 int newX = x + direction[0];
                 int newY = y + direction[1];
 
+                // Check if the new cell is within bounds
                 if (newX >= 0 && newX < rowCount && newY >= 0 && newY < colCount) {
                     if (distArr[newX][newY] > distArr[x][y] + 1) {
                         distArr[newX][newY] = distArr[x][y] + 1;

@@ -14,21 +14,11 @@ public class L130SurroundedRegions {
     The 'B' cells (which represent 'O's connected to the boundary) are reverted back to 'O'.
 */
 
-    public void solve(char[][] board) {
+public void solve(char[][] board) {
         int rowCount = board.length;
         int colCount = board[0].length;
 
 //      Step 1: Mark all 'O's connected to the boundary as 'B'
-        for (int i = 0; i < rowCount; i++) {
-            for (int j = 0; j < colCount; j++) {
-                if (i == 0 || j == 0 || i == rowCount - 1 || j == colCount - 1) {
-                    if (board[i][j] == 'O') {
-                        dfs(board, i, j);
-                    }
-                }
-            }
-        }
-/**
 //      This loop iterates over the first and last columns of the board for each row
         for (int i = 0; i < rowCount; i++) {
             if (board[i][0] == 'O') {
@@ -48,7 +38,7 @@ public class L130SurroundedRegions {
                 dfs(board, rowCount - 1, j);
             }
         }
-**/
+
         // Step 2: Convert all remaining 'O' to 'X', and 'B' back to 'O'
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
@@ -63,16 +53,16 @@ public class L130SurroundedRegions {
 
     private void dfs(char[][] board, int rowNum, int colNum) {
         if (rowNum < 0 || colNum < 0 || rowNum >= board.length || colNum >= board[0].length || board[rowNum][colNum] != 'O') {
-            // ⭐ board[rowNum][colNum] != 'O' as board[rowNum][colNum] can be 'X' or 'B' too
+                // ⭐ board[rowNum][colNum] != 'O' as board[rowNum][colNum] can be 'X' or 'B' too
             return;
         }
 
-        board[rowNum][colNum] = 'B';  // Mark as part of the non-surrounded region
+        board[rowNum][colNum] = 'T';  // Mark as part of the non-surrounded region
 
         dfs(board, rowNum - 1, colNum);
         dfs(board, rowNum + 1, colNum);
         dfs(board, rowNum, colNum - 1);
-        dfs(board, rowNum, colNum + 1);
+        dfs(board, rowNum, colNum +1);
     }
 
 //    Time Complexity: O(m * n) where m is the number of rows and n is the number of columns in the board.

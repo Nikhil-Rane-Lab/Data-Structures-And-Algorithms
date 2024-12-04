@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//https://leetcode.com/problems/clone-graph/description
 public class L133CloneGraph {
 
     Map<Node, Node> originalToCopyNodeMap = new HashMap<>();
@@ -20,7 +19,7 @@ public class L133CloneGraph {
         }
 
         Node copyNode = new Node(node.val, new ArrayList<>());
-        originalToCopyNodeMap.put(node, copyNode); //⭐ this line cannot be added after the for-loop
+        originalToCopyNodeMap.put(node, copyNode); // this line cannot be added after the for-loop
 
         for (Node neighbor : node.neighbors) {
             copyNode.neighbors.add(cloneGraph(neighbor));
