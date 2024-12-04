@@ -1,12 +1,85 @@
 package DSA.graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 //https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 public class GFGShortestPathInDirectedAcyclicGraph {
 //https://www.youtube.com/watch?v=ZUFQfFaU-8U
 
-    public int[] shortestPath(int N, int M, int[][] edges) {
+    // Approach 1 Using BFS : Topological sorting using Kahn's algorithm
+    public int[] shortestPath(int V, int E, int[][] edges) {
+
+        // Step 1: Create adjacency list
+        List<List<int[]>> graph = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        // Step 2: Topological sorting using Kahn's algorithm
+        int[] inDegree = new int[V];
+        for (int[] edge : edges) {
+            graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+            inDegree[edge[1]]++;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < V; i++) {
+            if (inDegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        List<Integer> topoOrder = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            topoOrder.add(node);
+            for (int[] neighborDetails : graph.get(node)) {
+                int neighbor = neighborDetails[0];
+                inDegree[neighbor]--;
+                if (inDegree[neighbor] == 0) {
+                    queue.offer(neighbor);
+                }
+            }
+        }
+
+        // Step 3: Initialize distances
+        int[] distArr = new int[V];
+        Arrays.fill(distArr, Integer.MAX_VALUE);
+        distArr[0] = 0;
+
+        // Step 4: Relax edges based on topological order
+        for (int u : topoOrder) {
+            if (distArr[u] != Integer.MAX_VALUE) { // By placing this check outside the inner loop, we avoid unnecessary
+// processing. If distArr[u] == Integer.MAX_VALUE, it means vertex u is unreachable from the source vertex,
+// so we can skip all edges outgoing from u entirely.
+                for (int[] neighbor : graph.get(u)) {
+                    int v = neighbor[0];
+                    int weight = neighbor[1];
+                    if (distArr[u] + weight < distArr[v]) {
+                        distArr[v] = distArr[u] + weight;
+                    }
+                }
+            }
+        }
+
+        // Step 5: Replace unreachable distances with -1
+        for (int i = 0; i < V; i++) {
+            if (distArr[i] == Integer.MAX_VALUE) {
+                distArr[i] = -1;
+            }
+        }
+
+        return distArr;
+    }
+
+
+    //  Approach 2 : Using DFS
+    public int[] shortestPath2(int N, int M, int[][] edges) {
         // Step 1: Build the graph adjacency list
         List<List<int[]>> graph = new ArrayList<>();
 
@@ -35,7 +108,7 @@ public class GFGShortestPathInDirectedAcyclicGraph {
         while (!stack.isEmpty()) {
             Integer u = stack.pop();
 
-            if (distArr[u] != Integer.MAX_VALUE) { // 2 things: a) we will later add distArr[u] + weight and we cannot add to Integer.MAX_VALUE
+            if (distArr[u] != Integer.MAX_VALUE) { // 2 reasons: a) we will later add distArr[u] + weight and we cannot add to Integer.MAX_VALUE
                 // b) we can't find weight to reach neighbor node, if we don't even know the weight required to reach the current node
                 for (int[] edge : graph.get(u)) {
                     int v = edge[0];
@@ -70,65 +143,7 @@ public class GFGShortestPathInDirectedAcyclicGraph {
         stack.push(node); //In topological sort, node is added at last when all its neighbors are processed.
     }
 
-    //TC: O(N+M) as O(N+M) is required "each" for topological sorting, relaxation and
-    //SC: O(N) for storing the graph, distance array, and other auxiliary structures.
-
-    public int[] shortestPathV2(int V, int E, int[][] edges) {
-        List<List<int[]>> adj = new ArrayList<>();
-
-        for (int i = 0; i < V; i++) {
-            adj.add(new ArrayList<>());
-        }
-
-        int[] inDegree = new int[V];
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(new int[]{edge[1], edge[2]});
-            inDegree[edge[1]]++;
-        }
-
-        Queue<Integer> q = new LinkedList<>();
-        for (int i = 0; i < V; i++) {
-            if (inDegree[i] == 0) {
-                q.offer(i);
-            }
-        }
-
-
-        List<Integer> traversal = new ArrayList<>();
-        while (!q.isEmpty()) {
-            int node = q.poll();
-            traversal.add(node);
-
-            for (int[] neighbor : adj.get(node)) {
-                inDegree[neighbor[0]]--;
-                if (inDegree[neighbor[0]] == 0) {
-                    q.offer(neighbor[0]);
-                }
-            }
-        }
-
-        int[] distArr = new int[V];
-        Arrays.fill(distArr, Integer.MAX_VALUE);
-        distArr[0] = 0;
-
-        for (int node : traversal) {
-            if (distArr[node] != Integer.MAX_VALUE) {
-                for (int[] det : adj.get(node)) {
-                    int neighbor = det[0];
-                    int weight = det[1];
-                    if (distArr[neighbor] > distArr[node] + weight) {
-                        distArr[neighbor] = distArr[node] + weight;
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < V; i++) {
-            if (distArr[i] == Integer.MAX_VALUE) {
-                distArr[i] = -1;
-            }
-        }
-
-        return distArr;
-    }
+// TC: O(N+M) as where N is the number of vertices and M is the number of edges.
+// This is due to building the adjacency list, topological sort, and edge relaxation.
+// SC: O(N) for storing the graph, distance array, and other auxiliary structures.
 }

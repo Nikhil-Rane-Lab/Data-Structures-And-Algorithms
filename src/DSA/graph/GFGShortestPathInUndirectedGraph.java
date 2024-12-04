@@ -6,10 +6,10 @@ import java.util.*;
 public class GFGShortestPathInUndirectedGraph {
 //https://www.youtube.com/watch?v=C4gxoTaI71U
 
-    public int[] shortestPath(int[][] edges, int n, int m, int src) {
+    public int[] shortestPath(int[][] edges, int V, int E, int src) {
 
         List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < V; i++) {
             graph.add(new ArrayList<>());
         }
 
@@ -18,9 +18,9 @@ public class GFGShortestPathInUndirectedGraph {
             graph.get(edge[1]).add(edge[0]);
         }
 
-        int[] distArr = new int[n];
+        int[] distArr = new int[V];
         Arrays.fill(distArr, Integer.MAX_VALUE);
-        distArr[src] = 0;
+        distArr[src] = 0; // IMP
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(src);
@@ -36,7 +36,7 @@ public class GFGShortestPathInUndirectedGraph {
             }
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < V; i++) {
             if (distArr[i] == Integer.MAX_VALUE) {
                 distArr[i] = -1;
             }
@@ -44,6 +44,7 @@ public class GFGShortestPathInUndirectedGraph {
         return distArr;
     }
 
-    //TC: O(N+E) where N is the number of vertices and E is the number of edges. This is because BFS explores each vertex and edge once.
-    //SC: O(N+E)
+    //TC: O(V+E) where V is the number of vertices and E is the number of edges.
+    // This is because BFS explores each vertex and edge once.
+    //SC: O(V+E)
 }

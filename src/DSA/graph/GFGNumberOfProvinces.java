@@ -2,7 +2,7 @@ package DSA.graph;
 
 import java.util.ArrayList;
 
-//https://www.geeksforgeeks.org/problems/number-of-provinces/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=number_of_provinces
+//https://www.geeksforgeeks.org/problems/number-of-provinces/1
 public class GFGNumberOfProvinces {
 //here input is adjacency matrix given as adjacency list 🥲
 
@@ -24,7 +24,7 @@ public class GFGNumberOfProvinces {
         visited[node] = true;
 
         for (int i = 0; i < adj.size(); i++) {
-            if (adj.get(node).get(i) == 0 //⭐ this check if "i" is a neighbor of node
+            if (adj.get(node).get(i) == 1 //⭐ this check if "i" is a neighbor of node
                     && !visited[i]) { //⭐ if yes, then this checks if the neighbor is unvisited
                 dfs(i, adj, visited);
             }
