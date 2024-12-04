@@ -5,7 +5,6 @@ public class L530MinimumAbsoluteDifference {
 
     int minDiff;
     TreeNode prev;
-
     public int getMinimumDifference(TreeNode root) {
         minDiff = Integer.MAX_VALUE;
         prev = null;

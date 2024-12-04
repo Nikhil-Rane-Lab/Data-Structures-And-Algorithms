@@ -11,7 +11,7 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
     Map<Integer, Integer> inOrderValueToIndexMap;
 
     public TreeNode buildTree1(int[] preOrder, int[] inOrder) {
-        preOrderIndex = 0; //⭐
+        preOrderIndex = 0; // ⚠️
         inOrderValueToIndexMap = new HashMap<>();
         for (int i = 0; i < inOrder.length; i++) { // Build a hashmap to store the value -> index relations
             inOrderValueToIndexMap.put(inOrder[i], i);
@@ -31,14 +31,14 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
 
         // Build the left and right subtree
         // excluding inorderIndexMap[rootValue] element because it's the root
-        Integer inOrderIndex = inOrderValueToIndexMap.get(val);
+        Integer inOrderIndex = inOrderValueToIndexMap.get(val); // Get the index of rootValue in inorder traversal to separate left and right subtrees
         treeNode.left = constructBinaryTree(preOrder, inOrderStart, inOrderIndex - 1);
         treeNode.right = constructBinaryTree(preOrder, inOrderIndex + 1, inOrderEnd);
         return treeNode;
     }
 
-// TC: O(n)
-// SC: O(n)
+// TC: O(n), where  n is the number of nodes, since each node is processed once, and searching the root index is O(1) with a HashMap.
+// SC: O(n) for the HashMap and the recursive stack in the worst case.
 
     //********************************************************************************************************************************
     public TreeNode buildTree2(int[] preorder, int[] inorder) {
@@ -68,6 +68,4 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
 
         return root;
     }
-
-
 }

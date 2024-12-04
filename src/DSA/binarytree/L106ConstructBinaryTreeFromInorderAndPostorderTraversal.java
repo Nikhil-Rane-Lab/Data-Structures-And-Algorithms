@@ -10,7 +10,7 @@ public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
     int postOrderIndex;
     Map<Integer, Integer> inOrderValueToIndexMap;
     public TreeNode buildTree1(int[] inOrder, int[] postOrder) {
-        postOrderIndex = postOrder.length - 1; //⭐
+        postOrderIndex = postOrder.length - 1; // ⚠️
         inOrderValueToIndexMap = new HashMap<>();
 
         // Map inorder values to their indices
@@ -33,7 +33,7 @@ public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
         // Root splits inorder list into left and right subtrees
         Integer inOrderIndex = inOrderValueToIndexMap.get(val);
 
-        // ⭐ Build the right subtree first because of the postorder traversal
+        //🙂 Build the right subtree first because of the postorder traversal
         root.right = constructBinaryTree(postOrder, inOrderIndex + 1, inOrderEnd);
         root.left = constructBinaryTree(postOrder, inOrderStart, inOrderIndex - 1);
         return root;
@@ -79,7 +79,7 @@ public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
         return root;
     }
 
-    //TC: O(n)
+    //TC: O(n) where n is the number of nodes. Each node is processed once, and retrieving indices from the HashMap takes constant time.
     //SC: O(n)
     // In the worst case, the depth of the recursion will be equal to the height of the tree.
     // In the worst case of a completely unbalanced tree (like a linked list),

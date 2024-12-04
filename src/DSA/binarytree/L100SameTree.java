@@ -2,7 +2,8 @@ package DSA.binarytree;
 
 //Q) https://leetcode.com/problems/same-tree
 public class L100SameTree {
-//this question is similar to L101SymmetricTree
+// https://www.youtube.com/watch?v=BhuvF_-PWS0
+//this question is SIMILAR BUT NOT SAME to L101SymmetricTree
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
 
@@ -13,6 +14,8 @@ public class L100SameTree {
 
         // If one node is null and the other is not, they are not the same
         if (p == null || q == null) { //⚠️ this condition CANNOT be replaced by if (p != null || q != null) { return false}
+   // as one node being null is sufficient enough to say that the nodes are not similar but both node being not null is
+   // not enough to say that they are similar as we also would then have to check their children subtrees values.
             return false;
         }
 

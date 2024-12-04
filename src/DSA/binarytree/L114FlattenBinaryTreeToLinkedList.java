@@ -14,13 +14,13 @@ public class L114FlattenBinaryTreeToLinkedList {
         while (curr != null) {
             if (curr.left != null) {
                 // Find the rightmost node of the left subtree
-                TreeNode rightMost = curr.left;
-                while (rightMost.right != null) {
-                    rightMost = rightMost.right;
+                TreeNode predecessor = curr.left;
+                while (predecessor.right != null) {
+                    predecessor = predecessor.right;
                 }
 
                 // Connect the right subtree of the current node to the rightmost node of the left subtree
-                rightMost.right = curr.right;
+                predecessor.right = curr.right;
                 curr.right = curr.left; // Move the left subtree to the right
                 curr.left = null; // adhering to linkedlist structure
             }

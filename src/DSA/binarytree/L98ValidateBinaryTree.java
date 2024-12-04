@@ -8,11 +8,12 @@ public class L98ValidateBinaryTree {
     }
 
     private boolean isValidBST(TreeNode node, long minValue, long maxValue) {
-        if (node == null) {
+        if (node == null) { // here we know for sure that there is no point going further into recursion as node is null so we return true
             return true;
         }
 
-        if (node.val <= minValue || node.val >= maxValue) {
+        if (node.val <= minValue || node.val >= maxValue) { // but here we cannot return true by changing this to opposite
+        // condition as we are not sure that its children nodes are valid or not. To check that we need to recurse further.
             return false;
         }
 

@@ -21,7 +21,7 @@ public class L222CountCompleteTreeNodes {
         int rightHeight = getRightHeight(root);
 
         if (leftHeight == rightHeight) { //it means its not just a "COMPLETE" but a "PERFECT" Binary Tree.
-            return (int) Math.pow(2, leftHeight) - 1; //⭐memorise: this is the formula to get the total number of nodes in a "PERFECT" binary search tree.
+            return (int) Math.pow(2, leftHeight) - 1; //memorise: this is the formula to get the total number of nodes in a "PERFECT" binary search tree.
         } else {
             // Otherwise, recursively count nodes in left and right subtrees
             return 1 + countNodes(root.left) + countNodes(root.right);

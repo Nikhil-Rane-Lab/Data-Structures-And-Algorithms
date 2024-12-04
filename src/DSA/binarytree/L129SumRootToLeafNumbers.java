@@ -7,6 +7,7 @@ public class L129SumRootToLeafNumbers {
         return dfs(root, 0);
     }
 
+   // ⚠️ We are using perOrder traversal here as number are to be constructed in that order only ie., from root to leaf
     private int dfs(TreeNode node, int currNum) {
 
         if (node == null) {

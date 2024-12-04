@@ -15,6 +15,8 @@ public class L104MaximumDepthOfBinaryTree {
         return 1 + Math.max(maxLeft, maxRight);
      }
 
-     //TC: O(n) where n is the number of the nodes in the tree
-     //SC: O(h) where h is the height of the tree
+//     TC: O(n) where n is the number of the nodes in the tree
+//     SC: O(h) where h is the height of the tree.
+//     This accounts for the space used in the recursive call stack.
+//     In the worst case,  h=n if the tree is skewed, and in the best case, h=log(n) if the tree is balanced.
 }

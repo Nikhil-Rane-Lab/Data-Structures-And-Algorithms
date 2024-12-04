@@ -5,7 +5,7 @@ import java.util.Queue;
 
 //https://leetcode.com/problems/symmetric-tree
 public class L101SymmetricTree {
-//this question is similar to L100SameTree
+//this question is SIMILAR BUT NOT SAME to L100SameTree
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
@@ -21,7 +21,9 @@ public class L101SymmetricTree {
             return true;
         }
 
-        if (t1 == null || t2 == null) { //⚠️ this condition CANNOT be replaced by if (t1 != null || t2 != null) { return false}
+        if (t1 == null || t2 == null) {  //⚠️ this condition CANNOT be replaced by if (t1 != null || t2 != null) { return false}
+            // as one node being null is sufficient enough to say that the nodes are not similar but both node being not null is
+            // not enough to say that they are similar as we also would then have to check their children subtrees values.
             return false;
         }
 

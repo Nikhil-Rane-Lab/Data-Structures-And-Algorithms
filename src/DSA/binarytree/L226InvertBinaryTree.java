@@ -3,7 +3,22 @@ package DSA.binarytree;
 //https://leetcode.com/problems/invert-binary-tree
 public class L226InvertBinaryTree {
 
-    public TreeNode invertTree(TreeNode root) {
+    public TreeNode invertTree(TreeNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        //🙂 This is equal to using preOrder Traversal
+        TreeNode temp = head.left;
+        head.left = head.right;
+        head.right = temp;
+
+        invertTree(head.left);
+        invertTree(head.right);
+        return head;
+    }
+
+    public TreeNode invertTree2(TreeNode root) {
         if (root == null) {
             return null;
         }
