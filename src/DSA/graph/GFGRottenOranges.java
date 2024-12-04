@@ -41,7 +41,6 @@ public class GFGRottenOranges {
             int currX = curr[0];
             int currY = curr[1];
             int currTime = curr[2];
-            time = Math.max(time, currTime); //NOTE this is outside inner for loop
 
             for (int[] currDirection : directionArr) {
                 int newX = currX + currDirection[0];
@@ -50,6 +49,7 @@ public class GFGRottenOranges {
                 if (newX >= 0 && newX < rowCount
                         && newY >= 0 && newY < colCount
                         && grid[newX][newY] == 1) {
+                    time = Math.max(time, currTime + 1); //⚠️
                     queue.add(new int[]{newX, newY, currTime + 1});
                     grid[newX][newY] = 2;
                     freshOrangeCount--;
