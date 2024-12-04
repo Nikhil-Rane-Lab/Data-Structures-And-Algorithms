@@ -1,9 +1,6 @@
 package DSA.graph;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class GFGBipartiteGraph {
 
@@ -13,7 +10,8 @@ public class GFGBipartiteGraph {
 
         for (int i = 0; i < V; i++) {
             if (color[i] == -1) {
-                if (!bfs(i, adj, color)) {
+                color[i] = 1; //💡 this is executed only once per connected component of the graph because 👇
+                if (!bfs(i, adj, color)) { //💡: this will color all neighbors of the connected component via BFS
                     return false;
                 }
             }
@@ -25,7 +23,6 @@ public class GFGBipartiteGraph {
     private boolean bfs(int node, ArrayList<ArrayList<Integer>> adj, int[] color) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(node);
-        color[node] = 1;
 
         while (!queue.isEmpty()) {
             Integer current = queue.poll();

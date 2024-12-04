@@ -7,6 +7,7 @@ import java.util.Queue;
 public class L542_01Matrix {
 //https://www.youtube.com/watch?v=edXdVwkYHF8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=15
 
+//https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#14b8604c11f38067a593e97b9574daf3
     public int[][] updateMatrix(int[][] mat) {
         int rowCount = mat.length;
         int colCount = mat[0].length;
@@ -17,7 +18,7 @@ public class L542_01Matrix {
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
                 if (mat[i][j] == 0) {
-                    distArr[i][j] = 0;
+                    distArr[i][j] = 0; //⭐ this we know for sure!
                     queue.offer(new int[]{i, j});
                 } else {
                     distArr[i][j] = Integer.MAX_VALUE;

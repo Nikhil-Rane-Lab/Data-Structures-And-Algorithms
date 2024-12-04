@@ -7,6 +7,8 @@ import java.util.Queue;
 
 //https://leetcode.com/problems/course-schedule
 public class L207CourseSchedule {
+//https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#14b8604c11f380e98643fcd661a2359d
+
 // Approach: To solve the problem of determining whether all courses can be finished given the prerequisites,
 // we can model this problem as a graph. Each course represents a node, and a prerequisite relationship is represented
 // as a directed edge between two nodes. The problem then boils down to detecting if there is a cycle in the graph.
@@ -71,7 +73,7 @@ public class L207CourseSchedule {
         int[] inDegree = new int[numCourses];
         for (int[] prerequisite : prerequisites) {
             graph.get(prerequisite[1]).add(prerequisite[0]);
-            inDegree[prerequisite[0]]++;
+            inDegree[prerequisite[0]]++;  // Each course's inDegree count should reflect the number of prerequisites it has.
         }
 
         Queue<Integer> queue = new LinkedList<>();
