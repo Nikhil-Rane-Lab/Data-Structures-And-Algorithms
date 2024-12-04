@@ -1,8 +1,13 @@
 package DSA.graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
+//https://www.geeksforgeeks.org/problems/bipartite-graph/1
 public class GFGBipartiteGraph {
+// https://www.youtube.com/watch?v=-vu34sct1g8
 
     public boolean isBipartite(int V, ArrayList<ArrayList<Integer>> adj) {
         int[] color = new int[V];
