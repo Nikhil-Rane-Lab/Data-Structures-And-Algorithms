@@ -13,7 +13,7 @@ public class L105ConstructBinaryTreeFromPreOrderAndInOrderTraversal {
     public TreeNode buildTree1(int[] preOrder, int[] inOrder) {
         preOrderIndex = 0; // ⚠️
         inOrderValueToIndexMap = new HashMap<>();
-        for (int i = 0; i < inOrder.length; i++) { // Build a hashmap to store the value -> index relations
+        for (int i = 0; i < inOrder.length; i++) { // Build a hashmap to store the value -> index mapping
             inOrderValueToIndexMap.put(inOrder[i], i);
         }
 

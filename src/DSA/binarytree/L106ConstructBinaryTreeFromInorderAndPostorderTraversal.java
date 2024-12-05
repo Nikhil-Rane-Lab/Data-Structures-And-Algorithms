@@ -39,6 +39,9 @@ public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
         return root;
     }
 
+// TC: O(n), where  n is the number of nodes, since each node is processed once, and searching the root index is O(1) with a HashMap.
+// SC: O(n) for the HashMap and the recursive stack in the worst case.
+
     //*********************************************************************************************************************
     public TreeNode buildTree2(int[] inOrder, int[] postOrder) {
         Map<Integer, Integer> inOrderIndexMap = new HashMap<>();

@@ -21,9 +21,9 @@ public class L101SymmetricTree {
             return true;
         }
 
-        if (t1 == null || t2 == null) {  //⚠️ this condition CANNOT be replaced by if (t1 != null || t2 != null) { return false}
-            // as one node being null is sufficient enough to say that the nodes are not similar but both node being not null is
-            // not enough to say that they are similar as we also would then have to check their children subtrees values.
+        if (t1 == null || t2 == null) {   //⚠️ this condition CANNOT be replaced by if (p != null || q != null) { return false}
+            // as ONLY one node being null is sufficient to say that the nodes are not similar but both node being not null is
+            // not enough to say that they are similar as we also then would have to check their values as well as their children subtrees values.
             return false;
         }
 

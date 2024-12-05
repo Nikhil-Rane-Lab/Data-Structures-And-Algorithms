@@ -14,8 +14,8 @@ public class L100SameTree {
 
         // If one node is null and the other is not, they are not the same
         if (p == null || q == null) { //⚠️ this condition CANNOT be replaced by if (p != null || q != null) { return false}
-   // as one node being null is sufficient enough to say that the nodes are not similar but both node being not null is
-   // not enough to say that they are similar as we also would then have to check their children subtrees values.
+   // as ONLY one node being null is sufficient to say that the nodes are not similar but both node being not null is
+   // not enough to say that they are similar as we also then would have to check their values as well as their children subtrees values.
             return false;
         }
 

@@ -14,7 +14,7 @@ public class L236LowestCommonAncestorOfABinaryTree {
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-        if (left == null) {
+        if (left == null) { //⚠️ We cannot check if (left != null) here as it will satisfy even for last else condition
             return right;
         } else if (right == null) {
             return left;

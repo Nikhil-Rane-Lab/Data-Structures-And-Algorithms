@@ -9,7 +9,7 @@ public class L114FlattenBinaryTreeToLinkedList {
     //Preferred Approach as SC: O(1)
     //💡 Morris Traversal uses inOrder traversal internally but the question expects preOrder traversal but it still works!
     public void MorrisTraversalflatten(TreeNode root) {
-        TreeNode curr = root;
+        TreeNode curr = root; // 😊 This step is optional. Code will work without it too!
 
         while (curr != null) {
             if (curr.left != null) {
@@ -30,7 +30,7 @@ public class L114FlattenBinaryTreeToLinkedList {
     }
 
     //TC: O(n)
-    //SC: O(1) //due to morris traversal
+    //SC: O(1) //due to Morris Traversal ⭐
     //No additional space proportional to the input size is used (such as a stack for recursive calls,
     //which would be O(h) where h is the height of the tree in a recursive approach).
 
