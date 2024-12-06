@@ -41,6 +41,8 @@ public class L199BinaryTreeRightSideView {
     //TC: O(N) where N is the number of nodes in the tree, since each node is processed once.
     //SC: O(M), where M is the maximum number of nodes at any level in the tree (which is the width of the tree).
     // In the worst case (for a complete binary tree), M could be N/2.
-    // The space complexity O(M) is derived from the maximum number of nodes that can be held in the queue at any given time during the breadth-first traversal.
-    // In a binary tree, the widest level (the level with the most nodes) determines the peak memory usage for the queue in the BFS approach.
+    // The space complexity O(M) is derived from the maximum number of nodes that can be held in the queue at any given
+    // time during the breadth-first traversal.
+    // In a binary tree, the widest level (the level with the most nodes) determines the peak memory usage for the queue in the
+    // BFS approach.
 }

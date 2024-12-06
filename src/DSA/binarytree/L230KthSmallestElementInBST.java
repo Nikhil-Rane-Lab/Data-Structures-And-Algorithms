@@ -3,8 +3,8 @@ package DSA.binarytree;
 //https://leetcode.com/problems/kth-smallest-element-in-a-bst
 public class L230KthSmallestElementInBST {
 
-    //Approach:
-    //An in-order traversal of a BST gives the nodes in ascending order. Therefore, performing an in-order traversal
+    // Approach:
+    // An in-order traversal of a BST gives the nodes in ascending order. Therefore, performing an in-order traversal
     // and keeping track of the number of nodes visited will allow us to find the kth smallest element efficiently.
     int count = 0;
     int result;
@@ -30,7 +30,7 @@ public class L230KthSmallestElementInBST {
         inOrderTraversal(node.right, k);
     }
 
-    //TC: O(N)
+    //TC: O(N) However, in a balanced binary search tree, it can be O(K) if the k-th smallest element is found early.
     //SC: O(N)
     // The space complexity is O(h), where h is the height of the tree. This is due to the recursive call stack used during the in-order traversal.
     // In the worst case, the space complexity can be O(n) for a completely unbalanced tree, but it is O(logn) for a balanced tree.

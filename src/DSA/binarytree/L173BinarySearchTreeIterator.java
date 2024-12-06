@@ -14,7 +14,7 @@ public class L173BinarySearchTreeIterator {
 
     public L173BinarySearchTreeIterator(TreeNode root) {
         stack = new Stack<>();
-        pushAllLeftNodes(root);
+        pushAllLeftNodes(root); //⚠️ this node is included while pushing the left nodes in the stack
     }
 
     /** Push all the left nodes of a subtree to the stack */
@@ -28,7 +28,7 @@ public class L173BinarySearchTreeIterator {
     /** @return the next smallest number */
     public int next() {
         TreeNode node = stack.pop();
-        pushAllLeftNodes(node.right);  // After visiting node, push all the left nodes of the right child
+        pushAllLeftNodes(node.right);  // ⚠️ this is right child. Also this node is included while pushing the left nodes in the stack
         return node.val;
     }
 

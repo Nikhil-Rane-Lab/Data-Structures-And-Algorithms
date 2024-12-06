@@ -25,7 +25,6 @@ public class L98ValidateBinaryTree {
     // This accounts for the recursion stack in the worst case. For a balanced tree, this is O(logn);
     // for a skewed tree, it could be O(n).
 }
-
-    // storing the in-order traversal in an ArrayList and then checking if the list is in strictly
+    // 😊 storing the in-order traversal in an ArrayList and then checking if the list is in strictly
     // increasing order is another valid approach to determine whether a binary tree is a valid Binary Search Tree (BST).
     // but its SC will be O(n) which will be less efficient than above approach
