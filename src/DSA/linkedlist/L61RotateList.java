@@ -17,8 +17,8 @@ public class L61RotateList {
             len++;
         }
 
-        k = k % len; //😱 it is not (len % k) as we generally think that numerator should be higher than denominator
-                     // which ⚠️DOES NOT⚠️ apply in this case!
+        k = k % len; //😱 ⚠️ it is not (len % k) as we generally think that numerator should be higher than denominator
+                     // which DOES NOT apply in this case!
         if (k == 0) {
             return head; // do nothing, return LL as it is
         }
@@ -34,7 +34,7 @@ public class L61RotateList {
         }
 
         ListNode newHead = newTail.next; //"newHead" is the new head of the rotated LL
-        newTail.next = null; //"newTail" is the new tail of the new rotated LL so its next must be null
+        newTail.next = null; //"newTail" is the tail of the new rotated LL so its next must be null
         return newHead;
     }
 

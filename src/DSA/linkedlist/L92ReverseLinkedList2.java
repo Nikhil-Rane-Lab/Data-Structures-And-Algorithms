@@ -16,7 +16,7 @@ public class L92ReverseLinkedList2 {
         ListNode prev = dummy;
 
         // Move "prev" to the node just before the reversing part
-        for (int i = 1; i < left; i++) {
+        for (int i = 1; i < left; i++) { //⚠️
             prev = prev.next;
         }
 
@@ -33,6 +33,7 @@ public class L92ReverseLinkedList2 {
             prev.next = next; // append next to the curr of the sub-section
             next = curr.next; // now curr serves its purpose by giving "next" to "next" (incrementing next)
         } //MNEMONIC: CNNP:PNNC (mirror image) with only "next" in last two (Cartoon Network No Problem 😂)
+        // as "next" means "no" but "next.next" will mean no-of-no means "yes". Hence, only next. 😉
 
         return dummy.next;
     }

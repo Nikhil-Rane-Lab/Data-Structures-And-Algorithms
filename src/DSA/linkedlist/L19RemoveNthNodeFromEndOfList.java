@@ -3,14 +3,16 @@ package DSA.linkedlist;
 //https://leetcode.com/problems/remove-nth-node-from-end-of-list
 public class L19RemoveNthNodeFromEndOfList {
 
-    //APPROACH: Use two pointers. Move first pointer N steps forward. Then move first to the end, maintaining the gap of n nodes between first and second
+    // APPROACH: Use two pointers (Leader-Follower Approach)
+    // Move "Leader" pointer N steps forward.
+    // Then move "Leader" to the end, maintaining the gap of n nodes between first and second
     public ListNode removeNthFromEndOptimisedSinglePass(ListNode head, int n) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode leader = dummy, follower = dummy;
 
-        // Move leader ahead by n+1 steps to maintain the gap between leader and follower
-        for (int i = 0; i <= n; i++) {
+        // Move leader ahead by "n+1" steps to maintain the gap between leader and follower
+        for (int i = 0; i <= n; i++) { // ⚠️ memorize because (n+1) steps so more iterations should be there
             leader = leader.next;
         }
 

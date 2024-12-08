@@ -6,7 +6,6 @@ import java.util.Set;
 //https://leetcode.com/problems/linked-list-cycle
 public class L141LinkedListCycle {
 
-    //TODO 2 approaches
 //  Floyd's Cycle Detection algorithm, also known as the Tortoise and Hare algorithm.
     public boolean hasCycle(ListNode head) {
 /*
