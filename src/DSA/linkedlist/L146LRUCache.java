@@ -34,6 +34,23 @@ public class L146LRUCache {
         return node.value;
     }
 
+    //  In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
+    public void put(int key, int value) {
+        if (keyToNodeMap.containsKey(key)) {
+            Node node = keyToNodeMap.get(key);
+            node.value = value;
+            transferNodeToHead(node);
+        } else {
+            if (capacity == keyToNodeMap.size()) {
+                keyToNodeMap.remove(tail.prev.key); //⭐ here key is needed to access Node from HashMap so it is there in Node class
+                removeNode(tail.prev);
+            }
+            Node node = new Node(key, value);
+            keyToNodeMap.put(key, node);
+            insertAsHead(node);
+        }
+    }
+
     private void transferNodeToHead(Node node) {
         // below 2 operations effectively means transferring the node from wherever it is to the head
         removeNode(node); //In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
@@ -50,23 +67,6 @@ public class L146LRUCache {
     private void removeNode(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
-    }
-
-//  In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
-    public void put(int key, int value) {
-        if (keyToNodeMap.containsKey(key)) {
-            Node node = keyToNodeMap.get(key);
-            node.value = value;
-            transferNodeToHead(node);
-        } else {
-            if (capacity == keyToNodeMap.size()) {
-                keyToNodeMap.remove(tail.prev.key); //⭐ here key is needed so it is there in Node class
-                removeNode(tail.prev);
-            }
-            Node node = new Node(key, value);
-            keyToNodeMap.put(key, node);
-            insertAsHead(node);
-        }
     }
 
     private class Node {
