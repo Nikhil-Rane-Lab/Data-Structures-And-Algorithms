@@ -1,7 +1,7 @@
 package DSA.binarysearch;
 
-//? https://leetcode.com/problems/search-a-2d-matrix
-public class SearchA2DMatrix {
+//https://leetcode.com/problems/search-a-2d-matrix
+public class L74SearchA2DMatrix {
 
     public boolean searchMatrix(int[][] matrix, int target) {
 
@@ -12,7 +12,7 @@ public class SearchA2DMatrix {
 
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int middleElement = matrix[mid / colCount][mid % colCount]; //⭐ MEMORIZE. This treats the 2D array as a flattened 1D array and find arr[mid] from it
+            int middleElement = matrix[mid / colCount][mid % colCount]; //💪 This treats the 2D array as a flattened 1D array and find arr[mid] from it
 
             if (middleElement == target) {
                 return true;

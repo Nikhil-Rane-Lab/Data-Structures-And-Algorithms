@@ -1,6 +1,7 @@
 package DSA.binarysearch;
 
-public class SearchInsertPosition {
+//https://leetcode.com/problems/search-insert-position
+public class L35SearchInsertPosition {
 
     public int searchInsert(int[] nums, int target) {
 
@@ -19,7 +20,7 @@ public class SearchInsertPosition {
             }
         }
 
-        return left;
+        return left; //💪
     }
 
     //* TC: O(log(n))
