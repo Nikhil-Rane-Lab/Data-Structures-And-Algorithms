@@ -1,7 +1,7 @@
 package DSA.binarysearch;
 
 //? https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
-public class FindMinimumInRotatedSortedArray {
+public class L153FindMinimumInRotatedSortedArray {
 
     public int findMin(int[] nums) {
 

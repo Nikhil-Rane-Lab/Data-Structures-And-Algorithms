@@ -1,7 +1,7 @@
 package DSA.binarysearch;
 
 //* https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
-public class FindFirstAndLastPositionOfElementInSortedArray {
+public class L34FindFirstAndLastPositionOfElementInSortedArray {
 
     public int[] searchRange(int[] nums, int target) {
 
@@ -27,7 +27,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
                 left = mid + 1;
             }
 
-            if (nums[mid] == target) {
+            if (nums[mid] == target) { //⚠️ Generally this line is below above the above if-condition but not in this case.
                 index = mid; //⚠️ we do not break the loop once the target is found, we keep on iterating till the loop naturally ends.
             }
         }
