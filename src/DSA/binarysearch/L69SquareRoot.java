@@ -4,21 +4,26 @@ package DSA.binarysearch;
 public class L69SquareRoot {
 
     public int mySqrt(int x) {
-        if (x == 0) {
-            return 0;
+        if (x < 2) {
+            return x; // 0 and 1 are their own square roots
         }
 
-        int low = 1;
-        int high = x;
+        int left = 1; //⭐
+        int right = x / 2;
         int result = 0;
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (mid <= x / mid) {
-                result = mid;
-                low = mid + 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            long square = (long) mid * mid; // Use long to prevent overflow during multiplication
+
+            if (square == x) {
+                return mid;
+            } else if (square < x) {
+                result = mid; // Update result and search right
+                left = mid + 1;
             } else {
-                high = mid - 1;
+                right = mid - 1; // Search left
             }
         }
 

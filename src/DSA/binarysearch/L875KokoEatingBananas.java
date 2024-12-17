@@ -1,7 +1,7 @@
 package DSA.binarysearch;
 
 //Q) https://leetcode.com/problems/koko-eating-bananas
-public class KokoEatingBananas {
+public class L875KokoEatingBananas {
 
     public int minEatingSpeed(int[] piles, int maximumHoursAllowed) {
 
@@ -31,7 +31,8 @@ public class KokoEatingBananas {
 
         long hoursNeeded = 0; //⚠️ its datatype is long
         for (int pile : piles) {
-            hoursNeeded += (pile + eatingSpeedPerHour - 1) / eatingSpeedPerHour; //⚠️ will have to memorize
+            hoursNeeded += ((pile / eatingSpeedPerHour) + (pile % eatingSpeedPerHour != 0 ? 1 : 0)); // 🌟
+            // this is faster : hoursNeeded += (pile + eatingSpeedPerHour - 1) / eatingSpeedPerHour; //🧠🌟
         }
 
         return hoursNeeded <= maximumHoursAllowed;
