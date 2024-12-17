@@ -1,7 +1,7 @@
 package DSA.kadanesalgorithm;
 
 //https://leetcode.com/problems/maximum-sum-circular-subarray
-public class MaximumSumCircularSubArray {
+public class L918MaximumSumCircularSubArray {
 
     public int maxSubarraySumCircular(int[] nums) {
 
@@ -10,12 +10,7 @@ public class MaximumSumCircularSubArray {
         int totalSum = 0;
         for (int i = 0; i < nums.length; i++) {
             totalSum += nums[i];
-        }
-
-        //simply substituting each arr element by (-1 * itself)
-        // Invert the array elements to find the minimum subarray sum
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = -nums[i];
+            nums[i] = -nums[i]; // Invert the array elements to find the minimum subarray sum
         }
 
         int invertedMaxKadane = kadane(nums);
@@ -57,6 +52,7 @@ Here are the steps we need to follow:
 2. Calculate the total sum of the array and use Kadane's algorithm to find the minimum sum subarray.
    The maximum sum for the circular case can be derived by subtracting the minimum sum subarray from the total sum.
 3. Compare the results of the non-circular maximum sum and the circular maximum sum to get the final result.
-   However, we need to handle the edge case where all elements are negative, as in this case, the circular subarray would include the entire array, which is not allowed.
+   However, we need to handle the edge case where all elements are negative, as in this case, the circular subarray
+   would include the entire array, which is not allowed.
 */
 }
