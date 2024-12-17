@@ -5,8 +5,10 @@ public class L918MaximumSumCircularSubArray {
 
     public int maxSubarraySumCircular(int[] nums) {
 
+        // Case 1: Find the maximum subarray sum in the linear case
         int linearMaxKadane = kadane(nums);
 
+        // Case 2: Find the circular subarray sum
         int totalSum = 0;
         for (int i = 0; i < nums.length; i++) {
             totalSum += nums[i];
@@ -14,7 +16,9 @@ public class L918MaximumSumCircularSubArray {
         }
 
         int invertedMaxKadane = kadane(nums);
-        int maxCircular = totalSum + invertedMaxKadane;
+
+        // The circular sum is totalSum - minSum
+        int maxCircular = totalSum + invertedMaxKadane; // minSum is negative
 
         // If all elements are negative, maxCircular will be 0, which means the non-circular max is better
         if (maxCircular == 0) {
