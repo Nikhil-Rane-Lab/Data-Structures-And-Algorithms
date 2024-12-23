@@ -9,6 +9,7 @@ import java.util.Map;
 public class L30SubstringWithConcatenationOfAllWords {
 
     //Does Not give TLE on Leetcode
+    //Memorize both optimal and suboptimal approaches
     public List<Integer> findSubstringOptimised(String str, String[] words) {
         List<Integer> result = new ArrayList<>();
         if (str == null || words == null || words.length == 0) {

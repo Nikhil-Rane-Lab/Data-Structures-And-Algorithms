@@ -1,4 +1,4 @@
-package DSA.array;
+package DSA.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +61,7 @@ public class L76MinimumWindowSubstring {
     }
 }
 
+//💡 https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#1658604c11f3808e96c3e011a4f0bad9
 //TC: O(m+n) as building the frequency map of t takes O(n), where n is the length of t
 // AND The sliding window uses two pointers (left and right), each traversing the string s exactly once, resulting in O(m), where m is the length of s.
 
