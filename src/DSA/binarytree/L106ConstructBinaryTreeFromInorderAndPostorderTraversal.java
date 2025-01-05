@@ -3,7 +3,7 @@ package DSA.binarytree;
 import java.util.HashMap;
 import java.util.Map;
 
-//leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+//https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
 public class L106ConstructBinaryTreeFromInorderAndPostorderTraversal {
 //https://www.youtube.com/watch?v=LgLRTaEMRVc
 

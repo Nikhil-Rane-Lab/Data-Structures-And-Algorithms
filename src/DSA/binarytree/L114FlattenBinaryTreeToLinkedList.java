@@ -29,10 +29,10 @@ public class L114FlattenBinaryTreeToLinkedList {
         }
     }
 
-    //TC: O(n)
-    //SC: O(1) //due to Morris Traversal ⭐
-    //No additional space proportional to the input size is used (such as a stack for recursive calls,
-    //which would be O(h) where h is the height of the tree in a recursive approach).
+    // TC: O(n)
+    // SC: O(1) //due to Morris Traversal ⭐
+    // No additional space proportional to the input size is used (such as a stack for recursive calls,
+    // which would be O(h) where h is the height of the tree in a recursive approach).
 
 
     TreeNode prev = null;

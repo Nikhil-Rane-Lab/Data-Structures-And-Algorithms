@@ -39,6 +39,8 @@ public class L173BinarySearchTreeIterator {
 
     //TC: O(1) for initialization and O(1) amortized for next() and O(1) for hasNext(). Few operations might be costly,
     // but those costs are balanced out across many operations.
+    // If we were to calculate "TOTAL time complexity" for ALL operations across multiple calls, it would indeed be O(N),
+    // but for any individual call to next(), the time complexity is O(1) in an amortized sense.
     //SC: O(h) - The space complexity is determined by the height of the tree,
     // as the stack only stores nodes along the path from the root to the current node's leftmost descendant.
 }

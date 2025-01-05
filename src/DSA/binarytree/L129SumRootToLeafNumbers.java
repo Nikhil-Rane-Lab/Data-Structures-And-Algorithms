@@ -22,9 +22,9 @@ public class L129SumRootToLeafNumbers {
         }
 
         // Recur for left and right subtrees and sum the results
-        int leftPathSum = dfs(node.left, currNum);
-        int rightPathSum = dfs(node.right, currNum);
-        return leftPathSum + rightPathSum;
+        int leftNum = dfs(node.left, currNum);
+        int rightNum = dfs(node.right, currNum);
+        return leftNum + rightNum;
     }
 
     //TC: O(n)

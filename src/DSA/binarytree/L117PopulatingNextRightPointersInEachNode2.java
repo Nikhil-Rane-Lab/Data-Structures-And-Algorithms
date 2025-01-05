@@ -32,7 +32,7 @@ public class L117PopulatingNextRightPointersInEachNode2 {
                 }
                 currLevelNode = currLevelNode.next; // 💫 Move to the next node in the current level. Here we can jump to next
             // node of same level because in the previous iteration of the outer for-loop we have already connected the
-            // "next" pointer of each node to next right node. So we are reaping benefits of previous outer for-loop iteration
+            // "next" pointer of each node to next right node. So we are reaping the benefits of previous outer for-loop iteration
             }
 
             // Move/Jump to the next level
