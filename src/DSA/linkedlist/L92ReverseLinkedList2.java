@@ -13,10 +13,10 @@ public class L92ReverseLinkedList2 {
         // Create a dummy node to handle edge cases where reversing starts at the head
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode prev = dummy;
+        ListNode prev = dummy; //🚀
 
         // Move "prev" to the node just before the reversing part
-        for (int i = 1; i < left; i++) { //⚠️
+        for (int i = 1; i < left; i++) { //🚀
             prev = prev.next;
         }
 

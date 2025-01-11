@@ -11,21 +11,19 @@ public class L19RemoveNthNodeFromEndOfList {
         dummy.next = head;
         ListNode leader = dummy, follower = dummy;
 
-        // Move leader ahead by "n+1" steps to maintain the gap between leader and follower
-        for (int i = 0; i <= n; i++) { // ⚠️ memorize because (n+1) steps so more iterations should be there
+        // Move leader ahead by 💡"n+1" NOT "n" steps to maintain the gap between leader and follower
+        for (int i = 0; i <= n; i++) { //🚀 memorize because (n+1) steps so more iterations should be there
             leader = leader.next;
         }
 
         // Move both leader and follower until leader reaches the end
-        while (leader != null) {
+        while (leader != null) { //💡
             //if the node to be removed is head itself then this while loop will not run
             leader = leader.next;
             follower = follower.next;
         }
 
         follower.next = follower.next.next;
-
-        // Remove the nth node from the end
         return dummy.next;
     }
     //TC: O(n)

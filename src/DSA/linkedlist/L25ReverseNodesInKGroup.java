@@ -24,7 +24,7 @@ public class L25ReverseNodesInKGroup {
             curr = prev.next;
             next = curr.next;
 
-            for (int i = 1; i < k; i++) { //⚠️
+            for (int i = 1; i < k; i++) { // 🚀
                 curr.next = next.next;
                 next.next = prev.next;
                 prev.next = next;

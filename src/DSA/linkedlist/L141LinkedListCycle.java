@@ -36,10 +36,10 @@ Each time the slow pointer moves one step, the fast pointer moves two steps, eff
         Set<ListNode> visitedListNodeSet = new HashSet<>();
 
         while (head != null) {
-            head = head.next;
             if (!visitedListNodeSet.add(head)) {
                 return true;
             }
+            head = head.next;
         }
 
         return false;

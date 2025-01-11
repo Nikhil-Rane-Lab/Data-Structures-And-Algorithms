@@ -53,8 +53,13 @@ public class L146LRUCache {
 
     private void transferNodeToHead(Node node) {
         // below 2 operations effectively means transferring the node from wherever it is to the head
-        removeNode(node); //In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
+        removeNode(node); // In an LRU (Least Recently Used) cache, both get() and put() operations count as "uses" for the key.
         insertAsHead(node);
+    }
+
+    private void removeNode(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
     }
 
     private void insertAsHead(Node node) {
@@ -62,11 +67,6 @@ public class L146LRUCache {
         head.next.prev = node;
         head.next = node;
         node.prev = head;
-    }
-
-    private void removeNode(Node node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
     }
 
     private class Node {
@@ -81,3 +81,7 @@ public class L146LRUCache {
         }
     }
 }
+
+// TC: (i)  get: O(1) because HashMap lookup and doubly linked list operations are O(1).
+//     (ii) put: O(1) for the same reasons.
+// SC: O(N), where N is the capacity of the cache. This accounts for the HashMap and doubly linked list.
