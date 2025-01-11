@@ -5,7 +5,7 @@ public class L82RemoveDuplicatesFromSortedList2 {
 
     public ListNode deleteDuplicates(ListNode head) {
         ListNode dummy = new ListNode(0);
-        dummy.next = head;
+        dummy.next = head; // 💡 this is to avoid NPE if initial elements in the sequence are unique
         ListNode prev = dummy;
 
         while (head != null) {

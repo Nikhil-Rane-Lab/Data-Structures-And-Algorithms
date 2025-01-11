@@ -29,7 +29,7 @@ public class L61RotateList {
         ListNode newTail = head;
 
         //⭐ here we first find the tail of the rotated LL and then its head
-        for (int i = 1; i < numOfStepsToReachNewTail; i++) { //⚠️
+        for (int i = 1; i < numOfStepsToReachNewTail; i++) { // 🚀 (int i = 1)
             newTail = newTail.next;
         }
 

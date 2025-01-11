@@ -8,7 +8,7 @@ public class L19RemoveNthNodeFromEndOfList {
     // Then move "Leader" to the end, maintaining the gap of n nodes between first and second
     public ListNode removeNthFromEndOptimisedSinglePass(ListNode head, int n) {
         ListNode dummy = new ListNode(-1);
-        dummy.next = head;
+        dummy.next = head;  // ⭐ this is to handle if the node to be removed is head itself
         ListNode leader = dummy, follower = dummy;
 
         // Move leader ahead by 💡"n+1" NOT "n" steps to maintain the gap between leader and follower
@@ -18,7 +18,7 @@ public class L19RemoveNthNodeFromEndOfList {
 
         // Move both leader and follower until leader reaches the end
         while (leader != null) { //💡
-            //if the node to be removed is head itself then this while loop will not run
+            // if the node to be removed is head itself then this while loop will not run
             leader = leader.next;
             follower = follower.next;
         }
