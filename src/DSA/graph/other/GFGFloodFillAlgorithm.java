@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 // https://www.geeksforgeeks.org/problems/flood-fill-algorithm1856/1
 public class GFGFloodFillAlgorithm {

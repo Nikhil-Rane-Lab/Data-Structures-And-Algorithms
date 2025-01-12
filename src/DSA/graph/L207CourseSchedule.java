@@ -12,6 +12,46 @@ public class L207CourseSchedule {
 // as a directed edge between two nodes. The problem then boils down to detecting if there is a cycle in the graph.
 // If there is a cycle, it's impossible to finish all courses, otherwise, it is possible.
 
+    public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
+
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        int[] inDegree = new int[numCourses];
+        for (int[] prerequisite : prerequisites) {
+            graph.get(prerequisite[1]).add(prerequisite[0]);
+            inDegree[prerequisite[0]]++;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int processedCourses = 0;
+        while (!queue.isEmpty()) {
+            Integer course = queue.poll();
+            processedCourses++;
+
+            for (Integer neighbor : graph.get(course)) {
+                inDegree[neighbor]--;
+
+                if (inDegree[neighbor] == 0) {
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        return numCourses == processedCourses;
+    }
+    //TC: O(V+E)
+    //SC: O(V+E) for storing the graph and the visited array.
+
+    // OTHER APPROACH
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         List<List<Integer>> graph = new ArrayList<>();
@@ -55,46 +95,5 @@ public class L207CourseSchedule {
 
         visited[course] = 2; // Mark the course as fully processed
         return false;
-    }
-
-    //TC: O(V+E)
-    //SC: O(V+E) for storing the graph and the visited array.
-
-// OTHER APPROACH
-    public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
-
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            graph.add(new ArrayList<>());
-        }
-
-        int[] inDegree = new int[numCourses];
-        for (int[] prerequisite : prerequisites) {
-            graph.get(prerequisite[1]).add(prerequisite[0]);
-            inDegree[prerequisite[0]]++;
-        }
-
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++) {
-            if (inDegree[i] == 0) {
-                queue.offer(i);
-            }
-        }
-
-        int processedCourses = 0;
-        while (!queue.isEmpty()) {
-            Integer course = queue.poll();
-            processedCourses++;
-
-            for (Integer neighbor : graph.get(course)) {
-                inDegree[neighbor]--;
-
-                if (inDegree[neighbor] == 0) {
-                    queue.add(neighbor);
-                }
-            }
-        }
-
-        return numCourses == processedCourses;
     }
 }

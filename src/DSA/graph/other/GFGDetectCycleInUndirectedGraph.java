@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class GFGDetectCycleInUndirectedGraph {
                 if (isCycleExistsByDFS(neighbor, node, visited, adj)) {
                     return true;
                 }
-            } else if (neighbor != parent) { // If the neighbor is visited and not the parent, we found a cycle
+            } else if (neighbor != parent) { // If the neighbor is visited but is not the parent of node, then we have found a cycle.
                 return true;
             }
             // ⚠️ there is return true in both if block and else block

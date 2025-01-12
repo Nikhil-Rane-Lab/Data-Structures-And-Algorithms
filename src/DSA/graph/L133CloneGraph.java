@@ -15,7 +15,7 @@ public class L133CloneGraph {
         }
 
         if (originalToCopyNodeMap.containsKey(node)) {
-            return originalToCopyNodeMap.get(node);
+            return originalToCopyNodeMap.get(node); // as it is connected graph copied node can be neighbor of other node
         }
 
         Node copyNode = new Node(node.val, new ArrayList<>());
