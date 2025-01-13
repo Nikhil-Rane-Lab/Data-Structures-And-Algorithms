@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -30,30 +30,38 @@ public class GFGRottenOranges {
         }
 
         // Directions for the four possible moves (up, down, left, right)
-        int[][] directionArr = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] directionArr = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
         int time = 0;
 
         // Step 2: BFS to rot all reachable oranges
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
+            int size = queue.size();
 
-            int currX = curr[0];
-            int currY = curr[1];
-            int currTime = curr[2];
+            for (int i = 0; i < size; i++) {
+                int[] curr = queue.poll();
 
-            for (int[] currDirection : directionArr) {
-                int newX = currX + currDirection[0];
-                int newY = currY + currDirection[1];
+                int currX = curr[0];
+                int currY = curr[1];
+                int currTime = curr[2];
 
-                if (newX >= 0 && newX < rowCount
-                        && newY >= 0 && newY < colCount
-                        && grid[newX][newY] == 1) {
-                    time = Math.max(time, currTime + 1); //⚠️
-                    queue.add(new int[]{newX, newY, currTime + 1});
-                    grid[newX][newY] = 2;
-                    freshOrangeCount--;
+                for (int[] currDirection : directionArr) {
+                    int newX = currX + currDirection[0];
+                    int newY = currY + currDirection[1];
+
+                    if (newX >= 0 && newX < rowCount
+                            && newY >= 0 && newY < colCount
+                            && grid[newX][newY] == 1) {
+                        queue.add(new int[]{newX, newY, currTime + 1});
+                        grid[newX][newY] = 2;
+                        freshOrangeCount--;
+                    }
                 }
+            }
+
+            // 💡 Increase time after processing one level of BFS
+            if (!queue.isEmpty()) {
+                time++;
             }
         }
 

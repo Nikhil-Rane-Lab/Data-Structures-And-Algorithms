@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +50,7 @@ public class GFGShortestPathInDirectedAcyclicGraph {
         // Step 3: Initialize distances
         int[] distArr = new int[V];
         Arrays.fill(distArr, Integer.MAX_VALUE);
-        distArr[0] = 0;
+        distArr[0] = 0; // 💡
 
         // Step 4: Relax edges based on topological order
         for (int u : topoOrder) {
@@ -76,7 +76,7 @@ public class GFGShortestPathInDirectedAcyclicGraph {
 
         return distArr;
     }
-
+// TC & SC: https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#17a8604c11f380959e88d7585e8ac6c0
 
     //  Approach 2 : Using DFS
     public int[] shortestPath2(int N, int M, int[][] edges) {

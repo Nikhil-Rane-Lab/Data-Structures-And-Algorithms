@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class GFGShortestPathInUndirectedGraph {
             Integer node = queue.poll();
 
             for (Integer neighbor : graph.get(node)) {
-                if (distArr[node] + 1 < distArr[neighbor]) {
+                if (distArr[node] + 1 < distArr[neighbor]) { // this can be replaced by distArr[v] == Integer.MAX_VALUE due to BFS nature
                     distArr[neighbor] = distArr[node] + 1;
                     queue.add(neighbor);
                 }

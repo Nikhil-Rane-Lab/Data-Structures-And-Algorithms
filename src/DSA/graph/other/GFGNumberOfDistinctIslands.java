@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -34,7 +34,7 @@ public class GFGNumberOfDistinctIslands {
             return;
         }
 
-        visited[i][j] = true;
+        visited[i][j] = true; // 💡 instead of using visited array you could also sink the island by grid[i][j] = 0 to mark it as visited
         String relativePositionToBase = (i - baseRow) + "_" + (j - baseCol);
         islandShape.add(relativePositionToBase);
 
