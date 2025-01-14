@@ -17,7 +17,7 @@ public class L162FindPeakElement {
             }
         }
 
-        return left;
+        return left; //💡
     }
 }
 

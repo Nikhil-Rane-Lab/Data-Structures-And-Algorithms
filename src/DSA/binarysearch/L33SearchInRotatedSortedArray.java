@@ -18,13 +18,13 @@ public class L33SearchInRotatedSortedArray {
 
             // Determine which side is sorted
             if (nums[left] <= middleElement) { // Left side is sorted
-                if (nums[left] <= target && target < middleElement) {
+                if (nums[left] <= target && target < middleElement) { //💡<= is always applied at left or right boundary comparison
                     right = mid - 1; // Target is in the left half
                 } else {
                     left = mid + 1; // Target is in the right half
                 }
             } else { // Right side is sorted
-                if (middleElement < target && target <= nums[right]) {
+                if (middleElement < target && target <= nums[right]) { //💡<= is always applied at left or right boundary comparison
                     left = mid + 1; // Target is in the right half
                 } else {
                     right = mid - 1; // Target is in the left half

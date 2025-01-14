@@ -15,23 +15,22 @@ public class L34FindFirstAndLastPositionOfElementInSortedArray {
 
         int left = 0;
         int right = nums.length - 1;
-        int index = -1; //⚠️
+        int ans = -1; //⚠️
 
         while (left <= right) {
             int mid = left + (right - left) / 2;
 
+            if (nums[mid] == target) {
+                ans = mid; //⚠️ we do not break the loop once the target is found, we keep on iterating till the loop naturally ends.
+            }
             if (nums[mid] >= target) { //⚠️ NOTE: here even if (nums[mid] == target) still we are doing (right = mid - 1),
                                     // which means we will keep searching in the left half of the array even if we find the target
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
-
-            if (nums[mid] == target) { //⚠️ Generally this line is below above the above if-condition but not in this case.
-                index = mid; //⚠️ we do not break the loop once the target is found, we keep on iterating till the loop naturally ends.
-            }
         }
-        return index;
+        return ans;
     }
 
     private int findLast(int[] nums, int target) {
@@ -43,15 +42,14 @@ public class L34FindFirstAndLastPositionOfElementInSortedArray {
         while (left <= right) {
             int mid = left + (right - left) / 2;
 
+            if (nums[mid] == target) {
+                index = mid;
+            }
             if (nums[mid] <= target) { //⚠️ NOTE: here even if (nums[mid] == target) still we are doing (left = mid + 1),
                 // which means we will keep searching in the right half of the array even if we find the target
                 left = mid + 1;
             } else {
                 right = mid - 1;
-            }
-
-            if (nums[mid] == target) {
-                index = mid;
             }
         }
         return index;

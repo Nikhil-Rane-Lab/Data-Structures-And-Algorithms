@@ -12,7 +12,7 @@ public class L74SearchA2DMatrix {
 
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int middleElement = matrix[mid / colCount][mid % colCount]; //💪 This treats the 2D array as a flattened 1D array and find arr[mid] from it
+            int middleElement = matrix[mid / colCount][mid % colCount]; //🚀 This treats the 2D array as a flattened 1D array and find arr[mid] from it
 
             if (middleElement == target) {
                 return true;

@@ -20,7 +20,7 @@ public class L35SearchInsertPosition {
             }
         }
 
-        return left; //💪
+        return left; // 🚀
     }
 
     //* TC: O(log(n))
