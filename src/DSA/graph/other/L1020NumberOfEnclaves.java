@@ -1,4 +1,4 @@
-package DSA.graph;
+package DSA.graph.other;
 
 //https://leetcode.com/problems/number-of-enclaves/
 public class L1020NumberOfEnclaves {
