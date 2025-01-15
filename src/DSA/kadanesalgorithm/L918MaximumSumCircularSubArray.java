@@ -25,7 +25,7 @@ public class L918MaximumSumCircularSubArray {
             return linearMaxKadane;
         }
 
-        return Math.max(linearMaxKadane, maxCircular);
+        return Math.max(linearMaxKadane, maxCircular); //💡 note here it is maxCircular
     }
 
     private int kadane(int[] nums) {
