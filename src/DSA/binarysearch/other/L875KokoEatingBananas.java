@@ -1,6 +1,6 @@
-package DSA.binarysearch;
+package DSA.binarysearch.other;
 
-//Q) https://leetcode.com/problems/koko-eating-bananas
+//https://leetcode.com/problems/koko-eating-bananas
 public class L875KokoEatingBananas {
 
     public int minEatingSpeed(int[] piles, int maximumHoursAllowed) {

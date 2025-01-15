@@ -26,5 +26,5 @@ public class L153FindMinimumInRotatedSortedArray {
     }
 
     //* TC: O(log n)
-    //* SC: O(n)
+    //* SC: O(1)
 }

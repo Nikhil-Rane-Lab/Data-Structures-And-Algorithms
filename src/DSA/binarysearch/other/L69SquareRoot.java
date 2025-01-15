@@ -1,4 +1,4 @@
-package DSA.binarysearch;
+package DSA.binarysearch.other;
 
 //https://leetcode.com/problems/sqrtx
 public class L69SquareRoot {
