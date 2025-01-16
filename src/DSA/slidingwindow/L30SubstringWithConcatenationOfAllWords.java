@@ -8,6 +8,60 @@ import java.util.Map;
 //https://leetcode.com/problems/substring-with-concatenation-of-all-words
 public class L30SubstringWithConcatenationOfAllWords {
 
+    //Gives TLE on Leetcode
+    public List<Integer> findSubstring(String s, String[] words) {
+
+        List<Integer> result = new ArrayList<>();
+        if (s == null || words == null || words.length == 0) {
+            return result;
+        }
+
+        int wordLength = words[0].length();
+        int totalLength = wordLength * words.length;
+
+        Map<String, Integer> wordMap = new HashMap<>();
+        for (String word : words) {
+            wordMap.put(word, wordMap.getOrDefault(word, 0) + 1);
+        }
+
+        for (int i = 0; i <= s.length() - totalLength; i++) {
+
+            int j = 0;
+            Map<String, Integer> seenMap = new HashMap<>();
+
+            while (j < words.length) {
+
+                int wordStartIndex = i + (j * wordLength);
+                String substring = s.substring(wordStartIndex, wordStartIndex + wordLength);
+
+                if (!wordMap.containsKey(substring)) {
+                    break;
+                }
+
+                seenMap.put(substring, seenMap.getOrDefault(substring, 0) + 1);
+                if (seenMap.get(substring) > wordMap.get(substring)) {
+                    break;
+                }
+
+                j++;
+            }
+
+            if (j == words.length) {
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
+//https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#17d8604c11f380a68a80dce29347ac16
+//TC: O(n * m)
+// Constructing the word frequency map takes O(m), where m is the number of words.
+// The sliding window approach runs over s and processes each word in the substring,
+// which gives a complexity of O(n * m), where n is the length of the string s and m is the number of words.
+
+//SC: O(m+n)
+
     //Does Not give TLE on Leetcode
     //Memorize both optimal and suboptimal approaches
     public List<Integer> findSubstringOptimised(String str, String[] words) {
@@ -74,56 +128,4 @@ public class L30SubstringWithConcatenationOfAllWords {
     //SC: O(m+n) Where m is the number of words in words[] and n is the length of the string str.
     // as we use a hash map to store the frequency of words, which takes O(m) space,
     // where m is the number of distinct words in words.
-
-    //Gives TLE on Leetcode
-    public List<Integer> findSubstring(String s, String[] words) {
-
-        List<Integer> result = new ArrayList<>();
-        if (s == null || words == null || words.length == 0) {
-            return result;
-        }
-
-        int wordLength = words[0].length();
-        int totalLength = wordLength * words.length;
-
-        Map<String, Integer> wordMap = new HashMap<>();
-        for (String word : words) {
-            wordMap.put(word, wordMap.getOrDefault(word, 0) + 1);
-        }
-
-        for (int i = 0; i <= s.length() - totalLength; i++) {
-
-            int j = 0;
-            Map<String, Integer> seenMap = new HashMap<>();
-
-            while (j < words.length) {
-
-                int wordStartIndex = i + j * wordLength;
-                String substring = s.substring(wordStartIndex, wordStartIndex + wordLength);
-
-                if (!wordMap.containsKey(substring)) {
-                    break;
-                }
-
-                seenMap.put(substring, seenMap.getOrDefault(substring, 0) + 1);
-                if (seenMap.get(substring) > wordMap.get(substring)) {
-                    break;
-                }
-
-                j++;
-            }
-
-            if (j == words.length) {
-                result.add(i);
-            }
-        }
-
-        return result;
-    }
 }
-//TC: O(n * m)
-// Constructing the word frequency map takes O(m), where m is the number of words.
-// The sliding window approach runs over s and processes each word in the substring,
-// which gives a complexity of O(n * m), where n is the length of the string s and m is the number of words.
-
-//SC: O(m)

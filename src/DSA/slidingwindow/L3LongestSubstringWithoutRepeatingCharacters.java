@@ -50,24 +50,24 @@ public class L3LongestSubstringWithoutRepeatingCharacters {
         }
 
         // Using a HashMap to store the latest index of each character
-        Map<Character, Integer> charIndexMap = new HashMap<>();
+        Map<Character, Integer> charToIndexMap = new HashMap<>();
         int maxLength = 0;
         int left = 0;
 
         for (int right = 0; right < s.length(); right++) {
             char currentChar = s.charAt(right);
 
-            // If the character is already in the map and within the current window
+            // If the character is already in the map and its last seen index is within the current window.
             // Instead of incrementing left step by step,
             // the HashMap allows us to directly jump the left pointer to skip over the duplicate character.
             // It reduces unnecessary iterations to adjust the left pointer,
             // especially for long strings with repeated characters.
-            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left) {
-                left = charIndexMap.get(currentChar) + 1; // Move left to avoid the duplicate
+            if (charToIndexMap.containsKey(currentChar) && charToIndexMap.get(currentChar) >= left) { // checking if the character is already in the map and its last seen index is within the current window.
+                left = charToIndexMap.get(currentChar) + 1; // Move left to avoid the duplicate
             }
 
             // Update the latest index of the current character
-            charIndexMap.put(currentChar, right);
+            charToIndexMap.put(currentChar, right);
 
             // Update the max length
             maxLength = Math.max(maxLength, right - left + 1);
@@ -75,6 +75,12 @@ public class L3LongestSubstringWithoutRepeatingCharacters {
 
         return maxLength;
     }
+//TC: O(N) where n is the length of the string s. Each character is processed at most twice (once by right (for adding)
+// and once by left (for removing)), resulting in O(N)
 
+//SC: O(min(n, m))
+//        - n is the length of the input string.
+//        - m is the size of the character set (e.g., 26 for lowercase English letters, 128 for ASCII).
+//        - In the worst case, the HashSet stores all unique characters from the input string, but its size is capped by m.
 }
 

@@ -1,5 +1,6 @@
 package DSA.slidingwindow;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +30,6 @@ public class L209MinimumSizeSubArrSum {
 
         return minLen == Integer.MAX_VALUE ? 0 : minLen; // Return 0 if no valid subarray is found
     }
-}
 
 /**
   ⭐ this is done because now we know the minLength once we "start" with index 0.
@@ -45,3 +45,30 @@ public class L209MinimumSizeSubArrSum {
  SC: O(1)
  */
 
+// APPROACH 2
+
+    // https://www.notion.so/DSA-13c8604c11f380559d5cdacadeb95087?pvs=4#17d8604c11f380afb9c4eb77eb81dbe7
+    public int minSubArrayLenBinarySearch(int target, int[] nums) {
+        int n = nums.length;
+        int[] prefixSum = new int[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        int minLength = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            int requiredSum = target + prefixSum[i];
+            int j = Arrays.binarySearch(prefixSum, requiredSum);
+            if (j < 0) j = -j - 1; // Adjust for binary search's negative return value
+
+            if (j <= n) {
+                minLength = Math.min(minLength, j - i);
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+    //TC: O(nlogn)
+    //SC: O(n)
+}
