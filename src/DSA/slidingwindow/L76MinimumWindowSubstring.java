@@ -41,7 +41,7 @@ public class L76MinimumWindowSubstring {
             while (matchedCount == tMap.size()) {
                 if (minLength > right - left + 1) {
                     minLength = right - left + 1;  // Update the minimum window
-                    start = left; // Remember the start of the minimum window
+                    start = left; // Remember the start of the minimum window for return statement
                 }
 
                 char leftChar = s.charAt(left);
