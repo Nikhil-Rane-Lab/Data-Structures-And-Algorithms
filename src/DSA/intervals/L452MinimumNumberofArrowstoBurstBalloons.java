@@ -13,8 +13,8 @@ public class L452MinimumNumberofArrowstoBurstBalloons {
         }
 
         // Sort balloons by their end points
-        Arrays.sort(points, Comparator.comparingInt(a -> a[1])); //⭐Memorise
-        int arrowsCount = 1; //⭐ // We need at least one arrow.
+        Arrays.sort(points, Comparator.comparingInt(a -> a[1])); // 🚀 Memorise
+        int arrowsCount = 1; // ⭐ We need at least one arrow.
         // We assume the first arrow is shot at the end of the first balloon.
         int lastPosition = points[0][1];
 

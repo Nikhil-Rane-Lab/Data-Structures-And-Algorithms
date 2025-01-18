@@ -10,8 +10,8 @@ public class L150EvaluateReversePolishNotation {
 
         for (String token : tokens) {
             if (isOperator(token)) {
-                Integer b = stack.pop(); //⭐ the order of operand matter for "-" and "/" so second operand is popped first
-                Integer a = stack.pop(); //pop first operand
+                Integer b = stack.pop(); // ⭐ the order of operand matter for "-" and "/" so second operand is popped first
+                Integer a = stack.pop(); // pop first operand
                 int result = 0;
 
                 switch (token) {

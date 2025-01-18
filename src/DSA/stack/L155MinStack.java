@@ -20,7 +20,7 @@ public class L155MinStack {
     }
 
     public void pop() {
-        //If the value is the same as the top of the min stack,
+        // If the value is the same as the top of the min stack,
         // pop from the min stack as well
         // (since it means the minimum value is removed from the main stack).
         if (stack.peek().equals(minStack.peek())) {

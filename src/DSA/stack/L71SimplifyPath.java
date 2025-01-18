@@ -12,13 +12,13 @@ public class L71SimplifyPath {
 
         for (String component : components) {
             if (component.equals("") || component.equals(".")) {
-                continue;
+                continue; // Skip empty components or "." (current directory)
             } else if (component.equals("..")) {
                 if (!stack.isEmpty()) {
-                    stack.pop();
+                    stack.pop(); // Go up one directory level if possible
                 }
             } else {
-                stack.push(component);
+                stack.push(component); // Add valid directory names to the stack
             }
         }
 
