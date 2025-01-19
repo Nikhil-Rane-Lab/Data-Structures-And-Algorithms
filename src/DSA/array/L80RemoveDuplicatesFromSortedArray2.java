@@ -5,15 +5,19 @@ public class L80RemoveDuplicatesFromSortedArray2 {
 
     public int removeDuplicates(int[] nums) {
 
-        int k = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (k < 2 || nums[i] != nums[k - 2]) {
-                nums[k] = nums[i];
-                k++;
-            }
+        // Edge case: If the array has less than 3 elements, it's already valid.
+        if (nums.length <= 2) {
+            return nums.length;
         }
 
-        return k;
+        int i = 2;  // Start from the 3rd element
+        for (int j = 2; j < nums.length; j++) {
+            if (nums[j] != nums[i - 2]) {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;  // The length of the array after duplicates are removed
     }
 }
 

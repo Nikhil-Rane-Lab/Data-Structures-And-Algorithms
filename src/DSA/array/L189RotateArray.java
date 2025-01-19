@@ -9,7 +9,7 @@ public class L189RotateArray {
 
         int length = nums.length;
 
-        k = k % length; //⚠️Handle cases where k is larger than the array size
+        k = k % length; //⚠️ Handle cases where k is larger than the array size
 
         // Step 1: Reverse the entire array
         reverseArraySection(nums, 0, length - 1);
@@ -40,14 +40,16 @@ public class L189RotateArray {
 
         int length = nums.length;
         int[] temp = new int[length];
-        k = k % length;
+        k = k % length;  // Since rotating the array by its length does not change the array
 
         for (int i = 0; i < length; i++) {
-            temp[(i + k) % length] = nums[i]; //⚠️Memorize
+            temp[(i + k) % length] = nums[i]; // 🚀 Memorize
         }
 
         for (int i = 0; i < length; i++) {
             nums[i] = temp[i];
         }
     }
+// TC: O(n)
+// SC: O(n)
 }
