@@ -9,18 +9,20 @@ public class L45JumpGame2 {
         if (nums.length == 1) {
             return 0;
         }
-        int jumps = 0;
-        int farthest = 0;
-        int current_end = 0;
+        int jumps = 0; // Tracks the number of jumps needed.
+        int farthest = 0; // The farthest index reachable overall while iterating
+        int currentEnd = 0; // The farthest index reachable with the current number of jumps
 
         for (int i = 0; i < nums.length; i++) {
             farthest = Math.max(farthest, i + nums[i]);
 
-            if (current_end == i) {
+            // If we have reached the end of the current jump range
+            if (currentEnd == i) {
                 jumps++;
-                current_end = farthest;
+                currentEnd = farthest;
 
-                if (current_end >= nums.length - 1) {
+                // If the currentEnd is already at or beyond the last index
+                if (currentEnd >= nums.length - 1) {
                     break;
                 }
             }

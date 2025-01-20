@@ -8,7 +8,7 @@ public class L274HIndex {
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
 
-        int length = citations.length;
+        int length = citations.length; // [0,1,3,5,6] 5
         for (int i = 0; i < length; i++) {
             int h = length - i;  // The number of papers with citations >= citations[i]
 
