@@ -12,7 +12,7 @@ public class L12IntegerToRoman {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < values.length; i++) {
-            while (num >= values[i]) {
+            while (num >= values[i]) { // 🚀 this is "while" loop not "if" condition
                 num -= values[i];
                 sb.append(romanSymbols[i]);
             }

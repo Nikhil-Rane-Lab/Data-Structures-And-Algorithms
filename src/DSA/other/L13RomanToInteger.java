@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/roman-to-integer/
-
-public class RomanToInteger {
+public class L13RomanToInteger {
 
     public static int solve(String str) {
         Map<Character, Integer> charToValueMap = new HashMap<>();
@@ -19,17 +18,17 @@ public class RomanToInteger {
 
         int total = 0;
         for (int i = 0; i < str.length(); i++) {
-            Integer prevValue = charToValueMap.get(str.charAt(i));
+            Integer currValue = charToValueMap.get(str.charAt(i));
 
             if (i + 1 < str.length()) {
                 Integer nextValue = charToValueMap.get(str.charAt(i + 1));
-                if (prevValue < nextValue) {
-                    total -= prevValue;
+                if (currValue < nextValue) {
+                    total -= currValue;
                 } else {
-                    total += prevValue;
+                    total += currValue;
                 }
             } else {
-                total += prevValue;
+                total += currValue;
             }
         }
 

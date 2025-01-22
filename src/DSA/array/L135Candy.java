@@ -1,5 +1,7 @@
 package DSA.array;
 
+import java.util.Arrays;
+
 //https://leetcode.com/problems/candy
 public class L135Candy {
 
@@ -20,9 +22,7 @@ public class L135Candy {
         int[] candies = new int[childrenCount];
 
         // Give each child 1 candy initially
-        for (int i = 0; i < childrenCount; i++) {
-            candies[i] = 1;
-        }
+        Arrays.fill(candies, 1);
 
         // First pass: Left to Right
         for (int i = 1; i < childrenCount; i++) {
