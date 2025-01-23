@@ -5,29 +5,30 @@ public class L6ZigZagConversion {
 
     public String convert(String str, int numRows) {
 
-        if (str.isEmpty() || numRows == 1 || str.length() < numRows) {
+        if (str.isEmpty() || numRows == 1 || str.length() <= numRows) {
             return str;
         }
 
-        StringBuilder[] stringBuilderArr = new StringBuilder[numRows];
+        StringBuilder[] rows = new StringBuilder[numRows];
         for (int i = 0; i < numRows; i++) {
-            stringBuilderArr[i] = new StringBuilder();
+            rows[i] = new StringBuilder();
         }
 
-        boolean goingDown = false; //⭐this is false because of statement ⭐
+        boolean goingDown = false; // 💡 this is false because of statement ⭐
         int currRow = 0;
 
-        for (char c : str.toCharArray()) { //⚠️ memorize
-            stringBuilderArr[currRow].append(c);
+        for (char c : str.toCharArray()) { // 🚀
+            rows[currRow].append(c);
 
-            if (currRow == 0 || currRow == numRows - 1) { //this is statement ⭐
+            // Reverse direction if at the top or bottom row
+            if (currRow == 0 || currRow == numRows - 1) { // this is statement ⭐
                 goingDown = !goingDown;
             }
             currRow += goingDown ? 1 : -1;
         }
 
         StringBuilder result = new StringBuilder();
-        for (StringBuilder sb : stringBuilderArr) {
+        for (StringBuilder sb : rows) {
             result.append(sb.toString());
         }
 
@@ -35,5 +36,5 @@ public class L6ZigZagConversion {
     }
 }
 
-//TC: O(n) where n is the length of the string
-//SC: O(n) where n is the length of the string
+//TC: O(n)
+//SC: O(n)
