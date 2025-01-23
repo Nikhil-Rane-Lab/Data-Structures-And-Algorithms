@@ -32,11 +32,12 @@ public class L380InsertDeleteGetRandom {
 
         Integer indexInList = map.get(val);
         Integer lastElement = list.get(list.size() - 1);
-        list.set(indexInList, lastElement);
-        map.put(lastElement, indexInList);
 
-        map.remove(val);
+        list.set(indexInList, lastElement);
         list.remove(list.size() - 1);
+
+        map.put(lastElement, indexInList);
+        map.remove(val);
         return true;
     }
 
