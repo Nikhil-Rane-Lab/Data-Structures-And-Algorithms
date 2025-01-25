@@ -37,9 +37,14 @@ public class L242ValidAnagram {
 
     public boolean isAnagram(String s, String t) {
 
+        if (s.length() != t.length()) {
+            return false;
+        }
+
         int[] freq = new int[26];
         for (char c : s.toCharArray()) {
             freq[c - 'a']++;
+//            freq[c - 'a']--; ⭐ we can add this statement to avoid below for-loop
         }
 
         for (char c : t.toCharArray()) {

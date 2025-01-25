@@ -13,6 +13,8 @@ public class L49GroupAnagrams {
             Arrays.sort(charArray);
 
             String sortedStr = new String(charArray);
+//            sortedStrToAnagramStrsMap.computeIfAbsent(sortedStr, k -> new ArrayList<>()).add(str);
+//            lines 18 6o 23 can be replaced by alone above commented line
             if (!sortedStrToAnagramStrsMap.containsKey(sortedStr)) {
                 sortedStrToAnagramStrsMap.put(sortedStr, new ArrayList<>());
             }
